@@ -4,6 +4,8 @@ import * as React from 'react';
 import {withStyles, WithStyles, createStyles} from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import {CanvasWrapper} from "@flintdev/widget-builder";
+import Button from "../src/control/Button";
 
 const styles = createStyles({
     root: {},
@@ -52,7 +54,24 @@ class ExampleContainer extends React.Component<Props, object> {
                 <div>
                     {tabIndex === 0 &&
                     <div>
-
+                        <CanvasWrapper onDragEnd={this.onDragEnd}>
+                            <Button
+                                params={{
+                                    marginTop: 20,
+                                    marginBottom: 20,
+                                    marginLeft: 20,
+                                    marginRight: 20,
+                                    variant: 'contained',
+                                    label: 'TEST Button'
+                                }}
+                                events={{}}
+                                dnd={true}
+                                draggableProps={{
+                                    draggableId: 'id-1',
+                                    index: 0
+                                }}
+                            />
+                        </CanvasWrapper>
                     </div>
                     }
                     {tabIndex === 1 &&
