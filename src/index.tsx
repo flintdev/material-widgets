@@ -22,7 +22,7 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <Button {...props as ButtonProps}/>;
         case WidgetName.TextField:
             return <TextField {...props as TextFieldProps}/>;
-        case WidgetName.TextField:
+        case WidgetName.Grid:
             return <Grid {...props as GridProps}/>;
         default:
             return <></>
