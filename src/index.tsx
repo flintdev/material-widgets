@@ -2,18 +2,22 @@
 
 import * as React from 'react';
 import Button, {Props as ButtonProps} from "./control/Button";
+import TextField, {Props as TextFieldProps} from "./control/TextField";
 import {ReactElement} from "react";
 
-export type Props = ButtonProps;
+export type WidgetProps = ButtonProps | TextFieldProps;
 
-export type WidgetName = 'button';
-
-export const widgetMap = (props: Props) => {
-    return {
-        button: <Button {...props}/>
-    }
+export enum WidgetName {
+    Button = "Button",
+    TextField = "TextField"
 };
 
-export function getWidget(name: WidgetName, props: Props): ReactElement {
-    return widgetMap(props)[name];
+export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
+    console.log(name);
+    switch (name) {
+        case WidgetName.Button:
+            return <Button {...props as ButtonProps}/>;
+        case WidgetName.TextField:
+            return <TextField {...props as TextFieldProps}/>;
+    }
 }
