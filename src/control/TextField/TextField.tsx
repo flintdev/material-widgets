@@ -8,13 +8,13 @@ export interface Props extends WidgetProps {
     params: StandardTextFieldProps | FilledTextFieldProps | OutlinedTextFieldProps
 }
 
-export default class Button extends Widget<Props> {
+export default class TextField extends Widget<Props> {
 
     renderCustomComponent() {
         const { params } = this.props;
         return (
             <MuiTextField {...params}>
-                {params.label}
+
             </MuiTextField>
         )
     }

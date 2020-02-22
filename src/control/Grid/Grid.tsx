@@ -14,7 +14,9 @@ export default class Grid extends Widget<Props> {
         const { params } = this.props;
         return (
             <MuiGrid {...params}>
-                {params.children}
+                {this.placeContainer('container1')}
+                {this.placeContainer('container2')}
+                {this.placeContainer('container3')}
             </MuiGrid>
         )
     }
