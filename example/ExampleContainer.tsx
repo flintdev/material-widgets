@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {CanvasWrapper} from "@flintdev/widget-builder";
 import Button from "../src/control/Button";
+import GridExample from './GridExample';
 
 const styles = createStyles({
     root: {},
@@ -21,7 +22,7 @@ interface State {
 
 class ExampleContainer extends React.Component<Props, object> {
     state: State = {
-        tabIndex: 0
+        tabIndex: 1
     };
 
     componentDidMount(): void {
@@ -34,7 +35,8 @@ class ExampleContainer extends React.Component<Props, object> {
 
     onDragEnd = (result: any) => {
         const {source, destination} = result;
-        console.log(source, destination);
+        console.log('>>> source', source);
+        console.log('>>> destination', destination);
     };
 
     render() {
@@ -76,7 +78,9 @@ class ExampleContainer extends React.Component<Props, object> {
                     }
                     {tabIndex === 1 &&
                     <div>
-
+                         <CanvasWrapper onDragEnd={this.onDragEnd}>
+                             <GridExample/>
+                         </CanvasWrapper>
                     </div>
                     }
                 </div>
