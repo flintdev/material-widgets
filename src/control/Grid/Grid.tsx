@@ -16,7 +16,6 @@ export default class Grid extends Widget<Props> {
         return (
             <MuiGrid {...params}>
                 {!!columnParams && columnParams.map((columnParam: GridProps, index: number) => {
-                    console.log(columnParam)
                     return <MuiGrid {...columnParam}>{this.placeContainer(`container${index}`)}</MuiGrid>
                 })}
             </MuiGrid>
