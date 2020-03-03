@@ -32,9 +32,9 @@ export default class Button extends Widget<Props> {
                     marginRight: params.marginRight,
                 }}
             >
-                    <span>
+                    {/* <span>
                         {this.placeContainer('icon')}
-                    </span>
+                    </span> */}
                 {params.label}
             </MuiButton>
         )
