@@ -1,0 +1,8 @@
+params:
+  - group: Parameters
+    items:
+      - key: columnCount
+        name: Column Coumt
+        type: integer
+        ui: input
+        defaultValue: 2

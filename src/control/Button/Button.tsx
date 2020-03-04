@@ -1,8 +1,8 @@
-//
+// src/control/Button/Button.tsx
 
 import * as React from 'react';
-import {default as MuiButton} from "@material-ui/core/Button";
 import {Widget, WidgetProps} from "@flintdev/widget-builder";
+import {default as MuiButton} from "@material-ui/core/Button";
 
 interface Params {
     variant?: 'outlined' | 'text' | 'contained',
