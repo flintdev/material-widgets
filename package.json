@@ -1,13 +1,13 @@
 {
   "name": "@flintdev/material-widgets",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "flint widgets of material design",
   "main": "dist/index.js",
   "scripts": {
     "test": "test",
     "start": "webpack-dev-server",
     "build-example": "webpack --config webpack.config.js -w",
-    "build-dist": "rimraf dist && tsc --outDir dist/",
+    "build-dist": "rimraf dist && tsc --outDir dist/ && copyfiles -u 1 src/**/*.yaml dist/",
     "update-widget-builder": "npm install @flintdev/widget-builder@latest"
   },
   "repository": {
@@ -26,7 +26,8 @@
   "peerDependencies": {
     "react": "^16.12.0 || ^16.0.0",
     "react-dom": "^16.12.0 || ^16.0.0",
-    "lodash": "^4.17.15 || ^4.0.0"
+    "lodash": "^4.17.15 || ^4.0.0",
+    "js-yaml": "^3.13.1"
   },
   "dependencies": {
     "@flintdev/widget-builder": "0.0.6"
@@ -41,6 +42,7 @@
     "@types/react": "^16.9.17",
     "@types/react-beautiful-dnd": "^12.1.1",
     "@types/react-dom": "^16.9.4",
+    "copyfiles": "^2.2.0",
     "css-loader": "^3.4.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",

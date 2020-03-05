@@ -5,7 +5,7 @@ import {withStyles, WithStyles, createStyles} from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {CanvasWrapper} from "@flintdev/widget-builder";
-import Button from "../src/control/Button";
+import Button, {configJson} from "../src/control/Button";
 import GridExample from './GridExample';
 
 const styles = createStyles({
