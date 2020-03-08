@@ -22,7 +22,7 @@ export default class Grid extends Widget<Props> {
                 <MuiGrid container>
                     {Array(columnCount).map((_, index) => {
                         return (
-                            <MuiGrid item>
+                            <MuiGrid item key={index}>
                                 {this.placeContainer(index.toString())}
                             </MuiGrid>
                         )
