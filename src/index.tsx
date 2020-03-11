@@ -7,7 +7,6 @@ import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./contro
 import TextField, {Props as TextFieldProps} from "./control/TextField";
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
 
-
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps;
 
 export enum WidgetName {
@@ -15,6 +14,13 @@ export enum WidgetName {
     TextField = "TextField",
     Grid = "Grid"
 }
+
+type WidgetInfoType = {
+    [key in WidgetName]: {
+        category: 'control' | 'layout' | 'widget';
+        description?: string;
+    };
+};
 
 export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
     switch (name) {
@@ -29,6 +35,23 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
     }
 }
 
+
+
+export const WidgetInfo: WidgetInfoType = {
+    [WidgetName.Button]: {
+        category: "control",
+        description: ""
+    },
+    [WidgetName.TextField]: {
+        category: "control",
+        description: ""
+    },
+    [WidgetName.Grid]: {
+        category: "layout",
+        description: ""
+    },
+};
+
 interface WidgetConfigMapInterface {
     [key: string]: object
 }
@@ -41,3 +64,5 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
 export function getWidgetConfiguration(name: WidgetName): any {
     return WidgetConfigMap[name]
 }
+
+
