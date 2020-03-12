@@ -1,7 +1,7 @@
 //
 
 import * as React from 'react';
-import { getWidget, WidgetName, WidgetProps } from "../../src/index"
+import { getWidget, WidgetName, WidgetProps } from "../../src"
 
 export default class GridExample extends React.Component<any, any> {
 

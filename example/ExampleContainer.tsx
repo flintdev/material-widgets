@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import {CanvasWrapper} from "@flintdev/widget-builder";
 import Button, {configJson} from "../src/control/Button";
 import GridExample from './GridExample';
+import Grid from "../src/layout/Grid";
 
 const styles = createStyles({
     root: {},
@@ -78,9 +79,16 @@ class ExampleContainer extends React.Component<Props, object> {
                     }
                     {tabIndex === 1 &&
                     <div>
-                         <CanvasWrapper onDragEnd={this.onDragEnd}>
-                             <GridExample/>
-                         </CanvasWrapper>
+                        <CanvasWrapper onDragEnd={this.onDragEnd}>
+                            <Grid
+                                params={{columnCount: 2}}
+                                dnd={true}
+                                draggableProps={{
+                                    draggableId: 'id-2',
+                                    index: 0
+                                }}
+                            />
+                        </CanvasWrapper>
                     </div>
                     }
                 </div>
