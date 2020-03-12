@@ -37,7 +37,7 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
 
 
 
-export const WidgetInfo: WidgetInfoType = {
+export const widgetInfo: WidgetInfoType = {
     [WidgetName.Button]: {
         category: "control",
         description: ""
@@ -61,7 +61,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.Grid]: GridConfig,
 };
 
-export function getWidgetConfiguration(name: WidgetName): any {
+export function getWidgetConfiguration(name: string): any {
     return WidgetConfigMap[name]
 }
 
