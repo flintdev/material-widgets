@@ -6,8 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {CanvasWrapper} from "@flintdev/widget-builder";
 import Button, {configJson} from "../src/control/Button";
-import GridExample from './GridExample';
 import Grid from "../src/layout/Grid";
+import TextField from "../src/control/TextField";
 
 const styles = createStyles({
     root: {},
@@ -66,6 +66,22 @@ class ExampleContainer extends React.Component<Props, object> {
                                     marginRight: 20,
                                     variant: 'contained',
                                     label: 'TEST Button'
+                                }}
+                                events={{}}
+                                dnd={true}
+                                draggableProps={{
+                                    draggableId: 'id-1',
+                                    index: 0
+                                }}
+                            />
+                            <TextField
+                                params={{
+                                    marginTop: 20,
+                                    marginBottom: 20,
+                                    marginLeft: 20,
+                                    marginRight: 20,
+                                    variant: 'outlined',
+                                    label: 'TEST Input'
                                 }}
                                 events={{}}
                                 dnd={true}

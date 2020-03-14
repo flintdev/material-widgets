@@ -13,15 +13,24 @@ interface Params {
     marginRight?: number,
 }
 
+interface Events {
+    onClick?: (event: React.MouseEvent) => void
+}
+
 export interface Props extends WidgetProps {
     params: Params,
-    events: object
+    events: Events
 }
 
 export default class Button extends Widget<Props> {
 
+    handleClick = (event: React.MouseEvent) => {
+        const {events} = this.props;
+        if (!!events.onClick) events.onClick(event);
+    };
+
     renderCustomComponent() {
-        const {params, events} = this.props;
+        const {params} = this.props;
         return (
             <MuiButton
                 variant={params.variant}
@@ -31,10 +40,8 @@ export default class Button extends Widget<Props> {
                     marginLeft: params.marginLeft,
                     marginRight: params.marginRight,
                 }}
+                onClick={this.handleClick}
             >
-                    <span>
-                        {this.placeContainer('icon')}
-                    </span>
                 {params.label}
             </MuiButton>
         )

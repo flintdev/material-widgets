@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "test",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --progress --color",
     "build-example": "webpack --config webpack.config.js -w",
     "build-dist": "rimraf dist && tsc --outDir dist/ && copyfiles -u 1 src/**/*.yaml dist/",
     "update-widget-builder": "npm install @flintdev/widget-builder@latest"

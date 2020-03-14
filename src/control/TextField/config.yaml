@@ -4,43 +4,53 @@ params:
       - key: marginTop
         name: Margin Top
         type: integer
-        defaultValue: 5
+        defaultValue: 0
         ui: input
       - key: marginBottom
         name: Margin Bottom
         type: integer
-        defaultValue: 5
+        defaultValue: 0
         ui: input
       - key: marginLeft
         name: Margin Left
         type: integer
-        defaultValue: 5
+        defaultValue: 0
         ui: input
       - key: marginRight
         name: Margin Right
         type: integer
-        defaultValue: 5
+        defaultValue: 0
         ui: input
   - group: Parameters
     items:
+      - key: value
+        name: Value
+        type: string
+        ui: input
+        defaultValue: ''
       - key: variant
         name: Variant
         type: string
         ui: select
         options:
-          - contained
+          - standard
           - outlined
-          - text
-        defaultValue: contained
+          - filled
+        defaultValue: standard
       - key: label
-        name: label
+        name: Label
         type: string
         ui: input
-        defaultValue: Button
+        defaultValue: label
+      - key: placeholder
+        name: Placeholder
+        type: string
+        ui: input
+        defaultValue: ''
 events:
-  - key: onClick
-    name: onClick
+  - key: onChange
+    name: onChange
     args:
-      - name: event
-        type: MouseEvent
-        required: false
+      - name: value
+        type: string
+        required: true
