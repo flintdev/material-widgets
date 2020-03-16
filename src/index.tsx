@@ -4,7 +4,7 @@ import * as React from 'react';
 import {ReactElement} from "react";
 
 import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./control/Button";
-import TextField, {Props as TextFieldProps} from "./control/TextField";
+import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from "./control/TextField";
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
 
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps;
@@ -59,6 +59,7 @@ interface WidgetConfigMapInterface {
 const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.Button]: ButtonConfig,
     [WidgetName.Grid]: GridConfig,
+    [WidgetName.TextField]: TextFieldConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
