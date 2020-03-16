@@ -4,5 +4,11 @@ params:
       - key: columnCount
         name: Column Coumt
         type: integer
-        ui: input
+        ui: select
+        options:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 6
         defaultValue: 2
