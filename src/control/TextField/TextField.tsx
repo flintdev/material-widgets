@@ -16,7 +16,7 @@ interface Params {
 }
 
 interface Events {
-    onChange?: (value: string) => void,
+    onChange?: (args: object) => void,
 }
 
 export interface Props extends WidgetProps {
@@ -29,7 +29,7 @@ export default class TextField extends Widget<Props> {
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {events} = this.props;
         const value = event.target.value;
-        if (!!events.onChange) events.onChange(value);
+        if (!!events.onChange) events.onChange({value});
     };
 
     renderCustomComponent() {
