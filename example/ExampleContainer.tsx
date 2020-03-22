@@ -4,7 +4,6 @@ import * as React from 'react';
 import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { DropLine } from "@flintdev/widget-builder";
 import Button, { configJson } from "../src/control/Button";
 import Grid from "../src/layout/Grid";
 import TextField from "../src/control/TextField";
@@ -57,7 +56,6 @@ class ExampleContainer extends React.Component<Props, object> {
                 <div>
                     {tabIndex === 0 &&
                         <div>
-                            <DropLine />
                             <Button
                                 params={{
                                     marginTop: 20,
@@ -96,7 +94,6 @@ class ExampleContainer extends React.Component<Props, object> {
                     }
                     {tabIndex === 1 &&
                         <div>
-                            <DropLine />
                             <Grid
                                 params={{ columnCount: 2 }}
                                 dnd={true}
