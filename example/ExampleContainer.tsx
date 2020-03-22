@@ -1,11 +1,11 @@
 // example/ExampleContainer.tsx
 
 import * as React from 'react';
-import {withStyles, WithStyles, createStyles} from '@material-ui/core/styles';
+import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import {CanvasWrapper} from "@flintdev/widget-builder";
-import Button, {configJson} from "../src/control/Button";
+import { DropLine } from "@flintdev/widget-builder";
+import Button, { configJson } from "../src/control/Button";
 import Grid from "../src/layout/Grid";
 import TextField from "../src/control/TextField";
 
@@ -31,18 +31,18 @@ class ExampleContainer extends React.Component<Props, object> {
     }
 
     handleTabChange = (event: React.ChangeEvent, tabIndex: number) => {
-        this.setState({tabIndex});
+        this.setState({ tabIndex });
     };
 
     onDragEnd = (result: any) => {
-        const {source, destination} = result;
+        const { source, destination } = result;
         console.log('>>> source', source);
         console.log('>>> destination', destination);
     };
 
     render() {
-        const {classes} = this.props;
-        const {tabIndex} = this.state;
+        const { classes } = this.props;
+        const { tabIndex } = this.state;
         return (
             <div className={classes.root}>
                 <Tabs
@@ -51,13 +51,13 @@ class ExampleContainer extends React.Component<Props, object> {
                     textColor={"primary"}
                     onChange={this.handleTabChange}
                 >
-                    <Tab label="Button" value={0}/>
-                    <Tab label="Grid" value={1}/>
+                    <Tab label="Button" value={0} />
+                    <Tab label="Grid" value={1} />
                 </Tabs>
                 <div>
                     {tabIndex === 0 &&
-                    <div>
-                        <CanvasWrapper onDragEnd={this.onDragEnd}>
+                        <div>
+                            <DropLine />
                             <Button
                                 params={{
                                     marginTop: 20,
@@ -73,6 +73,7 @@ class ExampleContainer extends React.Component<Props, object> {
                                     draggableId: 'id-1',
                                     index: 0
                                 }}
+                                onDragEnd={(data: any) => this.onDragEnd(data)}
                             />
                             <TextField
                                 params={{
@@ -89,23 +90,23 @@ class ExampleContainer extends React.Component<Props, object> {
                                     draggableId: 'id-1',
                                     index: 0
                                 }}
+                                onDragEnd={(data: any) => this.onDragEnd(data)}
                             />
-                        </CanvasWrapper>
-                    </div>
+                        </div>
                     }
                     {tabIndex === 1 &&
-                    <div>
-                        <CanvasWrapper onDragEnd={this.onDragEnd}>
+                        <div>
+                            <DropLine />
                             <Grid
-                                params={{columnCount: 2}}
+                                params={{ columnCount: 2 }}
                                 dnd={true}
                                 draggableProps={{
                                     draggableId: 'id-2',
                                     index: 0
                                 }}
+                                onDragEnd={(data: any) => this.onDragEnd(data)}
                             />
-                        </CanvasWrapper>
-                    </div>
+                        </div>
                     }
                 </div>
             </div>
