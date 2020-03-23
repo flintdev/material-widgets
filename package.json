@@ -1,6 +1,6 @@
 {
   "name": "@flintdev/material-widgets",
-  "version": "0.0.28",
+  "version": "0.0.21",
   "description": "flint widgets of material design",
   "main": "dist/index.js",
   "scripts": {

@@ -75,4 +75,9 @@ export function getWidgetConfiguration(name: string): any {
     return WidgetConfigMap[name]
 }
 
-
+export {
+    Button,
+    TextField,
+    Label,
+    Grid
+}
