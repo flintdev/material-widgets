@@ -10,6 +10,7 @@ interface Params {
 
 export interface Props extends WidgetProps {
     params: Params,
+    style?: object
 }
 
 export default class Grid extends Widget<Props> {
@@ -22,13 +23,13 @@ export default class Grid extends Widget<Props> {
     };
 
     renderCustomComponent() {
-        const {params} = this.props;
+        const {params, style} = this.props;
         const {columnCount} = params;
         const items = new Array<number>(columnCount).fill(0);
         const size: GridSize = this.getItemSize(columnCount);
         return (
             <React.Fragment>
-                <MuiGrid container>
+                <MuiGrid container style={style}>
                     {items.map((_, index) => {
                         return (
                             <MuiGrid item key={index} xs={size}>
