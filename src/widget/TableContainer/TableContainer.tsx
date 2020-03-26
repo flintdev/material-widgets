@@ -4,10 +4,10 @@ import * as React from 'react';
 import {Widget, WidgetProps} from "@flintdev/widget-builder";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
+import TableHead from "@material-ui/core/TableHead";
+import TableFooter from "@material-ui/core/TableFooter";
 import Paper from "@material-ui/core/Paper";
 import {default as MuiTableContainer} from '@material-ui/core/TableContainer';
-import TableHead from "@material-ui/core/TableHead";
 
 interface Params {
     marginTop?: number,
@@ -43,6 +43,9 @@ export default class TableContainer extends Widget<Props> {
                     </TableHead>
                     <TableBody>
                         {this.placeContainer('body')}
+                    </TableBody>
+                    <TableBody>
+                        {this.placeContainer('footer')}
                     </TableBody>
                 </Table>
             </MuiTableContainer>

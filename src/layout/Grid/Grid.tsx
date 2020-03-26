@@ -5,12 +5,11 @@ import {Widget, WidgetProps} from "@flintdev/widget-builder";
 import {default as MuiGrid, GridSize} from "@material-ui/core/Grid";
 
 interface Params {
-    columnCount: number,
-    style?: object
+    columnCount: number
 }
 
 export interface Props extends WidgetProps {
-    params: Params
+    params: Params,
 }
 
 export default class Grid extends Widget<Props> {
@@ -24,12 +23,12 @@ export default class Grid extends Widget<Props> {
 
     renderCustomComponent() {
         const {params} = this.props;
-        const {columnCount, style} = params;
+        const {columnCount} = params;
         const items = new Array<number>(columnCount).fill(0);
         const size: GridSize = this.getItemSize(columnCount);
         return (
             <React.Fragment>
-                <MuiGrid container style={style}>
+                <MuiGrid container>
                     {items.map((_, index) => {
                         return (
                             <MuiGrid item key={index} xs={size}>
