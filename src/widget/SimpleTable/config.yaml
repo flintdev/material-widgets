@@ -1,0 +1,52 @@
+params:
+  - group: Style
+    items:
+      - key: marginTop
+        name: Margin Top
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginBottom
+        name: Margin Bottom
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginLeft
+        name: Margin Left
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginRight
+        name: Margin Right
+        type: integer
+        defaultValue: 0
+        ui: input
+  - group: Parameters
+    items:
+      - key: columns
+        name: Columns
+        type: array
+        element:
+          type: string
+        defaultValue:
+          - title1
+          - title2
+          - title3
+        ui: list-editor
+      - key: data
+        name: Data
+        type: array
+        element:
+          type: array
+          element:
+            type: string
+        defaultValue:
+          - row1
+            - col1-1
+            - col1-2
+            - col1-3
+          - row2
+            - col2-1
+            - col2-2
+            - col2-3
+        ui: list-editor

@@ -7,14 +7,16 @@ import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./contro
 import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from "./control/TextField";
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
 import Label, {Props as LabelProps, configJson as LabelConfig} from "./control/Label";
+import SimpleTable , {Props as SimpleTableProps, configJson as SimpleTableConfig} from "./widget/SimpleTable";
 
-export type WidgetProps = ButtonProps | TextFieldProps | GridProps;
+export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps;
 
 export enum WidgetName {
     Button = "Button",
     TextField = "TextField",
     Grid = "Grid",
     Label = "Label",
+    SimpleTable = "SimpleTable",
 }
 
 type WidgetInfoType = {
@@ -33,7 +35,9 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
         case WidgetName.Grid:
             return <Grid {...props as GridProps}/>;
         case WidgetName.Label:
-            return <Label {...props as LabelProps}/>
+            return <Label {...props as LabelProps}/>;
+        case WidgetName.SimpleTable:
+            return <SimpleTable {...props as SimpleTableProps}/>;
         default:
             return <></>
     }
@@ -57,7 +61,11 @@ export const widgetInfo: WidgetInfoType = {
     [WidgetName.Label]: {
         category: 'control',
         description: "",
-    }
+    },
+    [WidgetName.SimpleTable]: {
+        category: 'widget',
+        description: ""
+    },
 };
 
 interface WidgetConfigMapInterface {
@@ -69,6 +77,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.Grid]: GridConfig,
     [WidgetName.TextField]: TextFieldConfig,
     [WidgetName.Label]: LabelConfig,
+    [WidgetName.SimpleTable]: SimpleTableConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -79,5 +88,6 @@ export {
     Button,
     TextField,
     Label,
-    Grid
+    Grid,
+    SimpleTable
 }

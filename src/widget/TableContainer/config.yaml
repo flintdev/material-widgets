@@ -1,0 +1,35 @@
+params:
+  - group: Style
+    items:
+      - key: marginTop
+        name: Margin Top
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginBottom
+        name: Margin Bottom
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginLeft
+        name: Margin Left
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginRight
+        name: Margin Right
+        type: integer
+        defaultValue: 0
+        ui: input
+  - group: Parameters
+    items:
+      - key: pagination
+        name: Pagination
+        type: integer
+        defaultValue: 10
+        ui: select
+        options:
+          - 10
+          - 20
+          - 50
+          - 100
