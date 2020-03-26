@@ -18,31 +18,44 @@ interface Events {
 }
 
 export interface Props extends WidgetProps {
-    params: Params,
-    events: Events
+    params?: Params,
+    events?: Events
 }
 
 export default class Button extends Widget<Props> {
+    static defaultProps = {
+        params : {
+            variant: 'outlined',
+            label: 'button',
+            marginTop: 5,
+            marginBottom: 5,
+            marginLeft: 5,
+            marginRight: 5,
+        },
+        events: {
+
+        }
+    }
 
     handleClick = (event: React.MouseEvent) => {
         const {events} = this.props;
-        if (!!events.onClick) events.onClick(event);
+        if (!!events?.onClick) events.onClick(event);
     };
 
     renderCustomComponent() {
         const {params} = this.props;
         return (
             <MuiButton
-                variant={params.variant}
+                variant={params?.variant}
                 style={{
-                    marginTop: params.marginTop,
-                    marginBottom: params.marginBottom,
-                    marginLeft: params.marginLeft,
-                    marginRight: params.marginRight,
+                    marginTop: params?.marginTop,
+                    marginBottom: params?.marginBottom,
+                    marginLeft: params?.marginLeft,
+                    marginRight: params?.marginRight,
                 }}
                 onClick={this.handleClick}
             >
-                {params.label}
+                {params?.label}
             </MuiButton>
         )
     }
