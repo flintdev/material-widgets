@@ -8,8 +8,11 @@ import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from 
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
 import Label, {Props as LabelProps, configJson as LabelConfig} from "./control/Label";
 import SimpleTable , {Props as SimpleTableProps, configJson as SimpleTableConfig} from "./widget/SimpleTable";
+import TableContainer , {Props as TableContainerProps, configJson as TableContainerConfig} from "./widget/TableContainer";
+import TableRow , {Props as TableRowProps, configJson as TableRowConfig} from "./widget/TableRow";
+import Page , {Props as PageProps, configJson as PageConfig} from "./layout/Page";
 
-export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps;
+export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps | TableContainerProps | TableRowProps | PageProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -17,6 +20,9 @@ export enum WidgetName {
     Grid = "Grid",
     Label = "Label",
     SimpleTable = "SimpleTable",
+    TableContainer = "TableContainer",
+    TableRow = "TableRow",
+    Page = "Page",
 }
 
 type WidgetInfoType = {
@@ -38,6 +44,12 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <Label {...props as LabelProps}/>;
         case WidgetName.SimpleTable:
             return <SimpleTable {...props as SimpleTableProps}/>;
+        case WidgetName.TableContainer:
+            return <TableContainer {...props as TableContainerProps}/>;
+        case WidgetName.TableRow:
+            return <TableRow {...props as TableRowProps}/>;
+        case WidgetName.Page:
+            return <Page {...props as PageProps}/>;
         default:
             return <></>
     }
@@ -66,6 +78,18 @@ export const widgetInfo: WidgetInfoType = {
         category: 'widget',
         description: ""
     },
+    [WidgetName.TableContainer]: {
+        category: 'widget',
+        description: "",
+    },
+    [WidgetName.TableRow]: {
+        category: 'widget',
+        description: "",
+    },
+    [WidgetName.Page]: {
+        category: "layout",
+        description: ""
+    }
 };
 
 interface WidgetConfigMapInterface {
@@ -78,6 +102,9 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.TextField]: TextFieldConfig,
     [WidgetName.Label]: LabelConfig,
     [WidgetName.SimpleTable]: SimpleTableConfig,
+    [WidgetName.TableContainer]: TableContainerConfig,
+    [WidgetName.TableRow]: TableRowConfig,
+    [WidgetName.Page]: PageConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -89,5 +116,8 @@ export {
     TextField,
     Label,
     Grid,
-    SimpleTable
+    SimpleTable,
+    TableContainer,
+    TableRow,
+    Page
 }

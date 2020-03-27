@@ -1,0 +1,24 @@
+params:
+  - group: Parameters
+    items:
+      - key: cells
+        name: Table Cells
+        type: array
+        element:
+          type: object
+          items:
+            - key: alignment
+              name: Alignment
+              type: string
+              ui: select
+              options:
+                - left
+                - center
+                - right
+              defaultValue: left
+        ui: list-editor
+        defaultValue:
+          - alignment: left
+          - alignment: left
+          - alignment: left
+          - alignment: left

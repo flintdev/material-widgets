@@ -1,0 +1,13 @@
+params:
+  - group: Parameters
+    items:
+      - key: layout
+        name: Layout
+        type: string
+        ui: select
+        options:
+          - header-sidebar-content
+          - header-content
+          - header-content-footer
+          - header-sidebar-content-footer
+        displayValue: header-sidebar-content
