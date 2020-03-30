@@ -1,0 +1,8 @@
+params:
+  - group: Parameters
+    items:
+      - key: title
+        name: Title
+        type: string
+        ui: input
+        defaultValue: "App Name"

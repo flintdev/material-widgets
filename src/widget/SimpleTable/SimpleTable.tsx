@@ -41,7 +41,7 @@ export default class SimpleTable extends Widget<Props> {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            {columns.map((title, i) => {
+                            {!!columns && columns.map((title, i) => {
                                 return (
                                     <TableCell key={i}>{title}</TableCell>
                                 )
@@ -49,7 +49,7 @@ export default class SimpleTable extends Widget<Props> {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.map((row, i) => {
+                        {!!data && data.map((row, i) => {
                             return (
                                 <TableRow key={i}>
                                     {row.map((col, j) => {

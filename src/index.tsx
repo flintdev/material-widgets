@@ -11,8 +11,9 @@ import SimpleTable , {Props as SimpleTableProps, configJson as SimpleTableConfig
 import TableContainer , {Props as TableContainerProps, configJson as TableContainerConfig} from "./widget/TableContainer";
 import TableRow , {Props as TableRowProps, configJson as TableRowConfig} from "./widget/TableRow";
 import Page , {Props as PageProps, configJson as PageConfig} from "./layout/Page";
+import NavBar , {Props as NavBarProps, configJson as NavBarConfig} from "./widget/NavBar";
 
-export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps | TableContainerProps | TableRowProps | PageProps;
+export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps | TableContainerProps | TableRowProps | PageProps | NavBarProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -23,6 +24,7 @@ export enum WidgetName {
     TableContainer = "TableContainer",
     TableRow = "TableRow",
     Page = "Page",
+    NavBar = "NavBar",
 }
 
 type WidgetInfoType = {
@@ -50,6 +52,8 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <TableRow {...props as TableRowProps}/>;
         case WidgetName.Page:
             return <Page {...props as PageProps}/>;
+        case WidgetName.NavBar:
+            return <NavBar {...props as NavBarProps}/>;
         default:
             return <></>
     }
@@ -89,6 +93,10 @@ export const widgetInfo: WidgetInfoType = {
     [WidgetName.Page]: {
         category: "layout",
         description: ""
+    },
+    [WidgetName.NavBar]: {
+        category: 'widget',
+        description: "",
     }
 };
 
@@ -105,6 +113,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.TableContainer]: TableContainerConfig,
     [WidgetName.TableRow]: TableRowConfig,
     [WidgetName.Page]: PageConfig,
+    [WidgetName.NavBar]: NavBarConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -119,5 +128,6 @@ export {
     SimpleTable,
     TableContainer,
     TableRow,
-    Page
+    Page,
+    NavBar,
 }

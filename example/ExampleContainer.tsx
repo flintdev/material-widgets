@@ -8,6 +8,7 @@ import Button, { configJson } from "../src/control/Button";
 import Grid from "../src/layout/Grid";
 import TextField from "../src/control/TextField";
 import { getWidget, WidgetName } from "../src"
+import NavBar from "../src/widget/NavBar";
 
 const styles = createStyles({
     root: {},
@@ -44,7 +45,7 @@ class ExampleContainer extends React.Component<Props, object> {
 
     handleSelectButton = (val: boolean) => {
         this.setState({ isButtonSelected: val })
-    }
+    };
 
     render() {
         const { classes } = this.props;
@@ -63,6 +64,14 @@ class ExampleContainer extends React.Component<Props, object> {
                 <div>
                     {tabIndex === 0 &&
                         <div>
+                            <NavBar
+                                params={{title: "App Name"}}
+                                dnd={true}
+                                draggableProps={{
+                                    draggableId: 'id-0',
+                                    index: 0
+                                }}
+                            />
                             <Button
                                 params={{
                                     marginTop: 20,
@@ -97,37 +106,6 @@ class ExampleContainer extends React.Component<Props, object> {
                                 }}
                                 onDragEnd={(data: any) => this.onDragEnd(data)}
                             />
-
-                            <div>
-                                {
-                                    !this.state.isButtonSelected &&
-                                    (
-                                        <button
-                                            onMouseDown={() => this.handleSelectButton(true)}
-                                        >
-                                            drag to create a dnd button
-                                        </button>
-                                    )
-                                }
-                                {
-                                    this.state.isButtonSelected && <div
-                                        onClick={() => console.log("up")}
-                                    > {
-                                        getWidget(WidgetName.Button, {
-                                                dnd: true,
-                                                draggableProps: {
-                                                    draggableId: 'id-2',
-                                                    index: 0
-                                                },
-                                                onDragEnd: (data: any) => {
-                                                    console.log(">>> onDragEnd", data)
-                                                    this.handleSelectButton(false)
-                                                }
-                                            }
-                                        )
-                                    }</div>
-                                }
-                            </div>
                         </div>
                     }
                     {tabIndex === 1 &&

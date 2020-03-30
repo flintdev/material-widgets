@@ -10,4 +10,4 @@ params:
           - header-content
           - header-content-footer
           - header-sidebar-content-footer
-        displayValue: header-sidebar-content
+        defaultValue: header-sidebar-content

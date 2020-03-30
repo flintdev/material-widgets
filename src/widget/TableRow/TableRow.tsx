@@ -23,7 +23,7 @@ export default class TableRow extends Widget<Props> {
         const {params} = this.props;
         return (
             <MuiTableRow>
-                {params.cells.map((cell, i) => {
+                {!!params.cells && params.cells.map((cell, i) => {
                     return (
                         <TableCell key={i} align={cell.alignment}>
                             {this.placeContainer(i.toString())}
