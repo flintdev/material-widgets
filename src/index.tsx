@@ -12,8 +12,10 @@ import TableContainer , {Props as TableContainerProps, configJson as TableContai
 import TableRow , {Props as TableRowProps, configJson as TableRowConfig} from "./widget/TableRow";
 import Page , {Props as PageProps, configJson as PageConfig} from "./layout/Page";
 import NavBar , {Props as NavBarProps, configJson as NavBarConfig} from "./widget/NavBar";
+import SideBar , {Props as SideBarProps, configJson as SideBarConfig} from "./widget/SideBar";
 
-export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps | TableContainerProps | TableRowProps | PageProps | NavBarProps;
+export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
+    TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -25,6 +27,7 @@ export enum WidgetName {
     TableRow = "TableRow",
     Page = "Page",
     NavBar = "NavBar",
+    SideBar = "SideBar",
 }
 
 type WidgetInfoType = {
@@ -54,12 +57,12 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <Page {...props as PageProps}/>;
         case WidgetName.NavBar:
             return <NavBar {...props as NavBarProps}/>;
+        case WidgetName.SideBar:
+            return <SideBar {...props as SideBarProps}/>;
         default:
             return <></>
     }
 }
-
-
 
 export const widgetInfo: WidgetInfoType = {
     [WidgetName.Button]: {
@@ -97,7 +100,11 @@ export const widgetInfo: WidgetInfoType = {
     [WidgetName.NavBar]: {
         category: 'widget',
         description: "",
-    }
+    },
+    [WidgetName.SideBar]: {
+        category: 'widget',
+        description: "",
+    },
 };
 
 interface WidgetConfigMapInterface {
@@ -114,6 +121,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.TableRow]: TableRowConfig,
     [WidgetName.Page]: PageConfig,
     [WidgetName.NavBar]: NavBarConfig,
+    [WidgetName.SideBar]: SideBarConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -130,4 +138,5 @@ export {
     TableRow,
     Page,
     NavBar,
+    SideBar,
 }

@@ -1,0 +1,31 @@
+params:
+  - group: Parameters
+    items:
+      - key: menuItems
+        name: "Menu Items"
+        type: array
+        element:
+          type: object
+          items:
+            - key: id
+              name: Item ID
+              type: string
+              ui: input
+              defaultValue: ""
+            - key: name
+              name: Item Name
+              type: string
+              ui: input
+              defaultValue: ""
+      - key: currentItemId
+        name: "Current Item ID"
+        type: string
+        ui: input
+        defaultValue: ""
+events:
+  - key: onChange
+    name: onChange
+    args:
+      - name: itemId
+        type: string
+        required: true
