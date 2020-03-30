@@ -1,4 +1,11 @@
 params:
+  - group: Styles
+    items:
+      - key: bgColor
+        name: "Background Color"
+        type: string
+        ui: color-picker
+        defaultValue: "#FFFFFF"
   - group: Parameters
     items:
       - key: title

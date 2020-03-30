@@ -7,16 +7,16 @@ import Typography from '@material-ui/core/Typography';
 
 interface Params {
     title: string,
+    bgColor: string,
 }
 
 const styles: any = {
     paper: {
-        width: '100%',
         borderRadius: 0,
         paddingLeft: 20,
         paddingRight: 20,
-        paddingTop: 15,
-        paddingBottom: 15,
+        paddingTop: 10,
+        paddingBottom: 10,
         display: 'flex',
     },
     titleText: {
@@ -40,7 +40,7 @@ export default class NavBar extends Widget<Props> {
         const {params} = this.props;
         return (
             <Paper style={styles.paper}>
-                <Typography variant={"h5"} style={styles.titleText}>{params.title}</Typography>
+                <Typography variant={"h6"} style={{...styles.titleText, backgroundColor: params.bgColor}}>{params.title}</Typography>
                 <div style={styles.actionsContainer}>
                     {this.placeContainer('actions')}
                 </div>
