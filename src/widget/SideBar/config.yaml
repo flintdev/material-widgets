@@ -17,6 +17,10 @@ params:
               type: string
               ui: input
               defaultValue: ""
+        ui: list-editor
+        defaultValue:
+          - id: "item-1"
+            name: "Menu Item 1"
       - key: currentItemId
         name: "Current Item ID"
         type: string
