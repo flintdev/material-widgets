@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 interface Params {
     title: string,
     bgColor: string,
+    titleColor: string,
 }
 
 const styles: any = {
@@ -39,8 +40,8 @@ export default class NavBar extends Widget<Props> {
     renderCustomComponent() {
         const {params} = this.props;
         return (
-            <Paper style={styles.paper}>
-                <Typography variant={"h6"} style={{...styles.titleText, backgroundColor: params.bgColor}}>{params.title}</Typography>
+            <Paper style={{...styles.paper, backgroundColor: params.bgColor}}>
+                <Typography variant={"h6"} style={{...styles.titleText, color: params.titleColor}}>{params.title}</Typography>
                 <div style={styles.actionsContainer}>
                     {this.placeContainer('actions')}
                 </div>

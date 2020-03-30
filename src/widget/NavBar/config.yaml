@@ -6,6 +6,11 @@ params:
         type: string
         ui: color-picker
         defaultValue: "#FFFFFF"
+      - key: titleColor
+        name: "Title Color"
+        type: string
+        ui: color-picker
+        defaultValue: "#000000"
   - group: Parameters
     items:
       - key: title
