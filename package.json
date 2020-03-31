@@ -1,6 +1,6 @@
 {
   "name": "@flintdev/material-widgets",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "flint widgets of material design",
   "main": "dist/index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "js-yaml": "^3.13.1"
   },
   "dependencies": {
-    "@flintdev/widget-builder": "0.0.21"
+    "@flintdev/widget-builder": "^0.0.21"
   },
   "devDependencies": {
     "@material-ui/core": "^4.8.3",
@@ -41,7 +41,6 @@
     "@types/js-yaml": "^3.12.2",
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.17",
-    "@types/react-beautiful-dnd": "^12.1.1",
     "@types/react-dom": "^16.9.4",
     "copyfiles": "^2.2.0",
     "css-loader": "^3.4.0",
