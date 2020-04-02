@@ -54,3 +54,5 @@ events:
       - name: value
         type: string
         required: true
+canvas:
+  display: inline-block

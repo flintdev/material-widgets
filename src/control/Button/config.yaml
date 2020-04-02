@@ -44,3 +44,5 @@ events:
       - name: event
         type: MouseEvent
         required: false
+canvas:
+  display: inline-block
