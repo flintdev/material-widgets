@@ -1,6 +1,6 @@
 {
   "name": "@flintdev/material-widgets",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "description": "flint widgets of material design",
   "main": "dist/index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "js-yaml": "^3.13.1"
   },
   "dependencies": {
-    "@flintdev/widget-builder": "^0.0.24"
+    "@flintdev/widget-builder": "^0.0.25"
   },
   "devDependencies": {
     "@material-ui/core": "^4.8.3",
