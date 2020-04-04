@@ -18,17 +18,23 @@ const styles: any = {
         paddingRight: 20,
         paddingTop: 10,
         paddingBottom: 10,
+        flex: 1,
         display: 'flex',
+    },
+    titleContainer: {
+        flex: 1,
+        display: 'table'
     },
     titleText: {
         height: '100%',
-        flex: 1
+        display: 'table-cell',
+        verticalAlign: 'center',
     },
     actionsContainer: {
         minWidth: 200,
         height: '100%',
         textAlign: "right"
-    }
+    },
 };
 
 export interface Props extends WidgetProps {
@@ -41,7 +47,9 @@ export default class NavBar extends Widget<Props> {
         const {params} = this.props;
         return (
             <Paper style={{...styles.paper, backgroundColor: params.bgColor}}>
-                <Typography variant={"h6"} style={{...styles.titleText, color: params.titleColor}}>{params.title}</Typography>
+                <div style={styles.titleContainer}>
+                    <Typography variant={"h6"} style={{...styles.titleText, color: params.titleColor}}>{params.title}</Typography>
+                </div>
                 <div style={styles.actionsContainer}>
                     {this.placeContainer('actions')}
                 </div>
