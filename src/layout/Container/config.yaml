@@ -1,0 +1,53 @@
+params:
+  - group: Style
+    items:
+      - key: marginTop
+        name: Margin Top
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginBottom
+        name: Margin Bottom
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginLeft
+        name: Margin Left
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginRight
+        name: Margin Right
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: paddingTop
+        name: Padding Top
+        type: integer
+        defaultValue: 10
+        ui: input
+      - key: paddingBottom
+        name: Padding Bottom
+        type: integer
+        defaultValue: 10
+        ui: input
+      - key: paddingLeft
+        name: Padding Left
+        type: integer
+        defaultValue: 10
+        ui: input
+      - key: paddingRight
+        name: Padding Right
+        type: integer
+        defaultValue: 10
+        ui: input
+  - group: Parameters
+    items:
+      - key: background
+        name: Background
+        type: string
+        ui: select
+        options:
+          - plain
+          - paper
+        defaultValue: plain
