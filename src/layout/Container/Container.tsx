@@ -43,12 +43,12 @@ export default class Container extends Widget<Props> {
         return (
             <React.Fragment>
                 {background === "plain" &&
-                <div style={style}>
+                <div style={{...style, flex: 1, width: '100%'}}>
                     {this.placeContainer('content')}
                 </div>
                 }
                 {background === "paper" &&
-                <Paper style={style}>
+                <Paper style={{...style, flex: 1, width: '100%'}}>
                     {this.placeContainer('content')}
                 </Paper>
                 }
