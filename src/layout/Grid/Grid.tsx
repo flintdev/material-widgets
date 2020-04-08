@@ -32,7 +32,7 @@ export default class Grid extends Widget<Props> {
                     {items.map((_, index) => {
                         return (
                             <MuiGrid item key={index} xs={size}>
-                                {this.placeContainer(index.toString())}
+                                {this.placeContainer(`grid-${index.toString()}`)}
                             </MuiGrid>
                         )
                     })}

@@ -39,13 +39,13 @@ export default class TableContainer extends Widget<Props> {
             >
                 <Table>
                     <TableHead>
-                        {this.placeContainer('head')}
+                        {this.placeContainer('table-container-head')}
                     </TableHead>
                     <TableBody>
-                        {this.placeContainer('body')}
+                        {this.placeContainer('table-container-body')}
                     </TableBody>
                     <TableFooter>
-                        {this.placeContainer('footer')}
+                        {this.placeContainer('table-container-footer')}
                     </TableFooter>
                 </Table>
             </MuiTableContainer>

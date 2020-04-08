@@ -21,7 +21,7 @@ export default class Page extends Widget<Props> {
             <div style={{width: '100%', height: '100%', display: 'flex', flexFlow: 'column'}}>
                 {/* header */}
                 <div>
-                    {this.placeContainer('header')}
+                    {this.placeContainer('page-header')}
                 </div>
                 {/* content */}
                 <div style={{flexGrow: 1}}>
@@ -29,12 +29,12 @@ export default class Page extends Widget<Props> {
                         <tbody>
                         <tr>
                             <td valign={"top"} style={{width: 240}}>
-                                {this.placeContainer('sidebar')}
+                                {this.placeContainer('page-sidebar')}
                             </td>
                             <td valign={"top"}>
                                 <div style={{overflow: "auto", width: '100%', height: '100%'}}>
                                     <div style={{overflow: "scroll"}}>
-                                        {this.placeContainer('content')}
+                                        {this.placeContainer('page-content')}
                                     </div>
                                 </div>
                             </td>
@@ -44,7 +44,7 @@ export default class Page extends Widget<Props> {
                 </div>
                 {/* footer */}
                 <div>
-                    {this.placeContainer('footer')}
+                    {this.placeContainer('page-footer')}
                 </div>
             </div>
         )

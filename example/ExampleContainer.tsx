@@ -9,6 +9,7 @@ import Grid from "../src/layout/Grid";
 import TextField from "../src/control/TextField";
 import { getWidget, WidgetName } from "../src"
 import NavBar from "../src/widget/NavBar";
+import {Container} from "../src";
 
 const styles = createStyles({
     root: {},
@@ -64,31 +65,26 @@ class ExampleContainer extends React.Component<Props, object> {
                 <div>
                     {tabIndex === 0 &&
                         <div>
-                            <NavBar
-                                params={{title: "App Name"}}
-                                dnd={true}
-                                draggableProps={{
-                                    draggableId: 'id-0',
-                                    index: 0
-                                }}
-                            />
-                            <Button
-                                params={{
-                                    marginTop: 20,
-                                    marginBottom: 20,
-                                    marginLeft: 20,
-                                    marginRight: 20,
-                                    variant: 'contained',
-                                    label: 'TEST Button'
-                                }}
-                                events={{}}
-                                dnd={true}
-                                draggableProps={{
-                                    draggableId: 'id-0',
-                                    index: 0
-                                }}
-                                onDragEnd={(data: any) => this.onDragEnd(data)}
-                            />
+                            <Container params={{background: 'paper'}}>
+                                <Button
+                                    params={{
+                                        marginTop: 20,
+                                        marginBottom: 20,
+                                        marginLeft: 20,
+                                        marginRight: 20,
+                                        variant: 'contained',
+                                        label: 'TEST Button'
+                                    }}
+                                    events={{}}
+                                    dnd={true}
+                                    draggableProps={{
+                                        draggableId: 'id-0',
+                                        index: 0
+                                    }}
+                                    onDragEnd={(data: any) => this.onDragEnd(data)}
+                                />
+                            </Container>
+
                             <TextField
                                 params={{
                                     marginTop: 20,

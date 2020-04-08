@@ -52,6 +52,7 @@ export default class SideBar extends Widget<Props> {
                     {!!params.menuItems && params.menuItems.map((item, i) => {
                         return (
                             <ListItem
+                                key={i}
                                 button={true}
                                 selected={item.id === params.currentItemId}
                                 onClick={this.handleMenuItemClick(item.id)}

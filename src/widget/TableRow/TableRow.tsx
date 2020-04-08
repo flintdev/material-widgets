@@ -26,7 +26,7 @@ export default class TableRow extends Widget<Props> {
                 {!!params.cells && params.cells.map((cell, i) => {
                     return (
                         <TableCell key={i} align={cell.alignment}>
-                            {this.placeContainer(i.toString())}
+                            {this.placeContainer(`table-row-${i.toString()}`)}
                         </TableCell>
                     )
                 })}

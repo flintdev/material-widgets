@@ -51,7 +51,7 @@ export default class NavBar extends Widget<Props> {
                     <Typography variant={"h6"} style={{...styles.titleText, color: params.titleColor}}>{params.title}</Typography>
                 </div>
                 <div style={styles.actionsContainer}>
-                    {this.placeContainer('actions')}
+                    {this.placeContainer('navbar-actions')}
                 </div>
             </Paper>
         )
