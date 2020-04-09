@@ -19,7 +19,7 @@ interface Params {
     marginRight?: number,
     columns: string[],
     data: Array<string[]>
-    status: "normal" | "loading" | "error",
+    status?: "normal" | "loading" | "error",
 }
 
 export interface Props extends WidgetProps {
@@ -74,8 +74,9 @@ export default class SimpleTable extends Widget<Props> {
 
     renderCustomComponent() {
         const {params} = this.props;
-        const {status} = params;
+        let {status} = params;
         const {columns, data} = params;
+        status = !!status ? status : "normal";
         return (
             <TableContainer
                 component={Paper}

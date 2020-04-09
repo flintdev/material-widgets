@@ -30,7 +30,7 @@ const styles: any = {
     root: {
         width: '100%',
         height: '100%',
-        paddingTop: 20,
+        paddingTop: 0,
         backgroundColor: 'white',
         borderRadius: '1px solid #ccc',
         overflowY: 'scroll'

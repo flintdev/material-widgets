@@ -1,0 +1,29 @@
+params:
+  - group: Parameters
+    items:
+      - key: tabItems
+        name: "Tab Items"
+        type: array
+        element:
+          type: object
+          items:
+            - key: name
+              name: Item Name
+              type: string
+              ui: input
+              defaultValue: ""
+        ui: list-editor
+        defaultValue:
+          - name: "Tab Item 1"
+      - key: currentTabIndex
+        name: "Current Tab Index"
+        type: integer
+        ui: input
+        defaultValue: 0
+events:
+  - key: onChange
+    name: onChange
+    args:
+      - name: tabIndex
+        type: integer
+        required: true

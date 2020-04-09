@@ -14,9 +14,12 @@ import Page , {Props as PageProps, configJson as PageConfig} from "./layout/Page
 import NavBar , {Props as NavBarProps, configJson as NavBarConfig} from "./widget/NavBar";
 import SideBar , {Props as SideBarProps, configJson as SideBarConfig} from "./widget/SideBar";
 import Container , {Props as ContainerProps, configJson as ContainerConfig} from "./layout/Container";
+import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
+import {Widget} from "@flintdev/widget-builder/dist";
 
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
-    TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps;
+    TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps |
+    TabsProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -30,6 +33,7 @@ export enum WidgetName {
     NavBar = "NavBar",
     SideBar = "SideBar",
     Container = "Container",
+    Tabs = "Tabs",
 }
 
 type WidgetInfoType = {
@@ -63,6 +67,8 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <SideBar {...props as SideBarProps}/>;
         case WidgetName.Container:
             return <Container {...props as ContainerProps}/>;
+        case WidgetName.Tabs:
+            return <Tabs {...props as TabsProps}/>
         default:
             return <></>
     }
@@ -113,6 +119,10 @@ export const widgetInfo: WidgetInfoType = {
         category: 'layout',
         description: "",
     },
+    [WidgetName.Tabs]: {
+        category: 'widget',
+        description: "",
+    },
 };
 
 interface WidgetConfigMapInterface {
@@ -131,6 +141,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.NavBar]: NavBarConfig,
     [WidgetName.SideBar]: SideBarConfig,
     [WidgetName.Container]: ContainerConfig,
+    [WidgetName.Tabs]: TabsConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -149,4 +160,5 @@ export {
     NavBar,
     SideBar,
     Container,
+    Tabs,
 }
