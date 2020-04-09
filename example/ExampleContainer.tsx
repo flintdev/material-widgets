@@ -65,7 +65,7 @@ class ExampleContainer extends React.Component<Props, object> {
                 <div>
                     {tabIndex === 0 &&
                         <div>
-                            <Container params={{background: 'paper'}}>
+                            <Container params={{background: 'paper'}} events={{}}>
                                 <Button
                                     params={{
                                         marginTop: 20,

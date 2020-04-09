@@ -9,6 +9,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from "@material-ui/core/Paper";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 interface Params {
     marginTop?: number,
@@ -17,6 +19,7 @@ interface Params {
     marginRight?: number,
     columns: string[],
     data: Array<string[]>
+    status: "normal" | "loading" | "error",
 }
 
 export interface Props extends WidgetProps {
@@ -24,9 +27,54 @@ export interface Props extends WidgetProps {
 }
 
 export default class SimpleTable extends Widget<Props> {
+    
+    renderTableBodyLoading = () => {
+        const {params} = this.props;
+        const {columns, data} = params;
+        return (
+            <TableRow>
+                <TableCell align={"center"} colSpan={columns.length}>
+                    <CircularProgress color={"primary"}/>
+                </TableCell>
+            </TableRow>
+        )
+    };
+
+    renderTableBodyError= () => {
+        const {params} = this.props;
+        const {columns, data} = params;
+        return (
+            <TableRow>
+                <TableCell align={"center"} colSpan={columns.length}>
+                    <ErrorOutlineIcon style={{color: 'red', fontSize: 50}}/>
+                </TableCell>
+            </TableRow>
+        )
+    };
+    
+    renderTableBodyNormal = () => {
+        const {params} = this.props;
+        const {columns, data} = params;
+        return (
+            <React.Fragment>
+                {!!data && data.map((row, i) => {
+                    return (
+                        <TableRow key={i}>
+                            {!!row && row.map((col, j) => {
+                                return (
+                                    <TableCell key={j}>{col}</TableCell>
+                                )
+                            })}
+                        </TableRow>
+                    )
+                })}
+            </React.Fragment>
+        )
+    };
 
     renderCustomComponent() {
         const {params} = this.props;
+        const {status} = params;
         const {columns, data} = params;
         return (
             <TableContainer
@@ -49,17 +97,9 @@ export default class SimpleTable extends Widget<Props> {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {!!data && data.map((row, i) => {
-                            return (
-                                <TableRow key={i}>
-                                    {!!row && row.map((col, j) => {
-                                        return (
-                                            <TableCell key={j}>{col}</TableCell>
-                                        )
-                                    })}
-                                </TableRow>
-                            )
-                        })}
+                        {status === "normal" && this.renderTableBodyNormal()}
+                        {status === "error" && this.renderTableBodyError()}
+                        {status === "loading" && this.renderTableBodyLoading()}
                     </TableBody>
                 </Table>
             </TableContainer>

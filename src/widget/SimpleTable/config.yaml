@@ -50,3 +50,12 @@ params:
             - col2-2
             - col2-3
         ui: list-editor
+      - key: status
+        name: Status
+        type: string
+        ui: select
+        options:
+          - "normal"
+          - "loading"
+          - "error"
+        defaultValue: normal

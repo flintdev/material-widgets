@@ -30,7 +30,7 @@ export default class Container extends Widget<Props> {
     componentDidMount() {
         super.componentDidMount();
         const {events} = this.props;
-        if (!!events.onLoad) events.onLoad();
+        if (!!events?.onLoad) events.onLoad();
     }
 
     getStyle = () => {
