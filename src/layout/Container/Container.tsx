@@ -16,11 +16,22 @@ interface Params {
     paddingRight?: number,
 }
 
+interface Events {
+    onLoad?: () => void;
+}
+
 export interface Props extends WidgetProps {
-    params: Params
+    params: Params,
+    events: Events,
 }
 
 export default class Container extends Widget<Props> {
+
+    componentDidMount() {
+        super.componentDidMount();
+        const {events} = this.props;
+        if (!!events.onLoad) events.onLoad();
+    }
 
     getStyle = () => {
         const {params} = this.props;

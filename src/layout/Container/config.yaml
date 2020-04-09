@@ -51,3 +51,6 @@ params:
           - plain
           - paper
         defaultValue: plain
+events:
+  - key: onLoad
+    name: onLoad
