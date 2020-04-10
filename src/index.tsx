@@ -16,10 +16,11 @@ import SideBar , {Props as SideBarProps, configJson as SideBarConfig} from "./wi
 import Container , {Props as ContainerProps, configJson as ContainerConfig} from "./layout/Container";
 import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
 import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from "./widget/TreeView";
+import TreeGraph , {Props as TreeGraphProps, configJson as TreeGraphConfig} from "./widget/TreeGraph";
 
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
     TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps |
-    TabsProps | TreeViewProps;
+    TabsProps | TreeViewProps | TreeGraphProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -35,6 +36,7 @@ export enum WidgetName {
     Container = "Container",
     Tabs = "Tabs",
     TreeView = "TreeView",
+    TreeGraph = "TreeGraph",
 }
 
 type WidgetInfoType = {
@@ -72,6 +74,8 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <Tabs {...props as TabsProps}/>
         case WidgetName.TreeView:
             return <TreeView {...props as TreeViewProps}/>
+        case WidgetName.TreeGraph:
+            return <TreeGraph {...props as TreeGraphProps}/>
         default:
             return <></>
     }
@@ -129,6 +133,10 @@ export const widgetInfo: WidgetInfoType = {
     [WidgetName.TreeView]: {
         category: 'widget',
         description: "",
+    },
+    [WidgetName.TreeGraph]: {
+        category: 'widget',
+        description: "",
     }
 };
 
@@ -150,6 +158,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.Container]: ContainerConfig,
     [WidgetName.Tabs]: TabsConfig,
     [WidgetName.TreeView]: TreeViewConfig,
+    [WidgetName.TreeGraph]: TreeGraphConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -170,4 +179,5 @@ export {
     Container,
     Tabs,
     TreeView,
+    TreeGraph,
 }

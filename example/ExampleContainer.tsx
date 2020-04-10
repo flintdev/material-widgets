@@ -7,10 +7,11 @@ import Tab from "@material-ui/core/Tab";
 import Button, { configJson } from "../src/control/Button";
 import Grid from "../src/layout/Grid";
 import TextField from "../src/control/TextField";
-import { getWidget, WidgetName } from "../src"
+import {getWidget, WidgetName} from "../src"
 import NavBar from "../src/widget/NavBar";
 import {Container} from "../src";
-
+import TreeGraph from "../src/widget/TreeGraph";
+import {nodes} from "./data/treeNodes";
 const styles = createStyles({
     root: {},
 });
@@ -53,6 +54,10 @@ class ExampleContainer extends React.Component<Props, object> {
         const { tabIndex } = this.state;
         return (
             <div className={classes.root}>
+                <TreeGraph
+                    params={{nodes: nodes, rootName: 'root', width: 500, height: 500}}
+                    events={{onNodeClick: () => {}}}
+                />
                 <Tabs
                     value={tabIndex}
                     indicatorColor={"primary"}
@@ -99,19 +104,6 @@ class ExampleContainer extends React.Component<Props, object> {
                                 draggableProps={{
                                     draggableId: 'id-1',
                                     index: 1
-                                }}
-                                onDragEnd={(data: any) => this.onDragEnd(data)}
-                            />
-                        </div>
-                    }
-                    {tabIndex === 1 &&
-                        <div>
-                            <Grid
-                                params={{ columnCount: 2 }}
-                                dnd={true}
-                                draggableProps={{
-                                    draggableId: 'id-2',
-                                    index: 0
                                 }}
                                 onDragEnd={(data: any) => this.onDragEnd(data)}
                             />
