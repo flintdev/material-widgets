@@ -31,7 +31,8 @@ export interface Props extends WidgetProps {
 export default class TreeGraph extends Widget<Props> {
 
     handleNodeClick = (event: any, nodeKey: any) => {
-        alert(`Left clicked ${nodeKey}`);
+        const {events} = this.props;
+        if (!!events?.onNodeClick) events.onNodeClick(nodeKey);
     }
 
     renderCustomComponent() {

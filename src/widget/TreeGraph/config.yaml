@@ -46,6 +46,6 @@ events:
   - key: onNodeClick
     name: onNodeClick
     args:
-      - name: node
-        type: object
+      - name: nodeName
+        type: string
         required: true
