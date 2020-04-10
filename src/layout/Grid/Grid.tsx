@@ -8,11 +8,22 @@ interface Params {
     columnCount: number
 }
 
+interface Events {
+    onLoad?: () => void;
+}
+
 export interface Props extends WidgetProps {
     params: Params,
+    events: Events,
 }
 
 export default class Grid extends Widget<Props> {
+
+    componentDidMount() {
+        super.componentDidMount();
+        const {events} = this.props;
+        if (!!events?.onLoad) events.onLoad();
+    }
 
     getItemSize = (columnCount: number): GridSize => {
         let size: number = Math.floor(12/columnCount);

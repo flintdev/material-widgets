@@ -15,7 +15,6 @@ import NavBar , {Props as NavBarProps, configJson as NavBarConfig} from "./widge
 import SideBar , {Props as SideBarProps, configJson as SideBarConfig} from "./widget/SideBar";
 import Container , {Props as ContainerProps, configJson as ContainerConfig} from "./layout/Container";
 import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
-import {Widget} from "@flintdev/widget-builder/dist";
 
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
     TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps |

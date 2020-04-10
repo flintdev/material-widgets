@@ -12,3 +12,6 @@ params:
           - 4
           - 6
         defaultValue: 2
+events:
+  - key: onLoad
+    name: onLoad

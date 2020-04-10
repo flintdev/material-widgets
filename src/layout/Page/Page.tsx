@@ -7,13 +7,24 @@ interface Params {
     layout: 'header-sidebar-content' | 'header-content' | 'header-content-footer' | 'header-sidebar-content-footer',
 }
 
+interface Events {
+    onLoad?: () => void;
+}
+
 export interface Props extends WidgetProps {
     params: Params,
+    events: Events,
 }
 
 // TODO: switch layout
 
 export default class Page extends Widget<Props> {
+
+    componentDidMount() {
+        super.componentDidMount();
+        const {events} = this.props;
+        if (!!events?.onLoad) events.onLoad();
+    }
 
     renderCustomComponent() {
         const {params} = this.props;
