@@ -1,0 +1,34 @@
+params:
+  - group: Parameters
+    items:
+      - key: nodes
+        name: Tree Nodes
+        type: tree
+        ui: tree-editor
+        defaultValue:
+          - id: "1"
+            name: node 1
+            children:
+              - id: "1-1"
+                name: node 1-1
+                children:
+                  - id: "1-1-1"
+                    name: node 1-1-1
+                  - id: "1-1-2"
+                    name: node 1-1-2
+              - id: "1-2"
+                name: node 1-2
+          - id: "2"
+            name: node 2
+            children:
+              - id: "2-1"
+                name: node 2-1
+              - id: "2-2"
+                name: node 2-2
+events:
+  - key: onNodeSelect
+    name: onNodeSelect
+    args:
+      - name: node
+        type: object
+        required: true

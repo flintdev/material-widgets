@@ -13,6 +13,7 @@ interface TabItem {
 interface Params {
     tabItems: TabItem[],
     currentTabIndex: number,
+    alignment: 'left' | 'center'
 }
 
 interface Events {
@@ -33,7 +34,7 @@ export default class Tabs extends Widget<Props> {
 
     renderCustomComponent() {
         const {params} = this.props;
-        const {tabItems, currentTabIndex} = params;
+        const {tabItems, currentTabIndex, alignment} = params;
         return (
             <Paper style={{flex: 1, width: "100%"}} square={true}>
                 <MuiTabs
@@ -41,6 +42,7 @@ export default class Tabs extends Widget<Props> {
                     indicatorColor="primary"
                     textColor="primary"
                     onChange={this.handleChange}
+                    centered={alignment === "center"}
                 >
                     {tabItems.map((item, i) => {
                         return (

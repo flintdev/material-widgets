@@ -20,6 +20,14 @@ params:
         type: integer
         ui: input
         defaultValue: 0
+      - key: alignment
+        name: "Alignment"
+        type: string
+        ui: select
+        options:
+          - "left"
+          - "center"
+        defaultValue: "left"
 events:
   - key: onChange
     name: onChange

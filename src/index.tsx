@@ -15,10 +15,11 @@ import NavBar , {Props as NavBarProps, configJson as NavBarConfig} from "./widge
 import SideBar , {Props as SideBarProps, configJson as SideBarConfig} from "./widget/SideBar";
 import Container , {Props as ContainerProps, configJson as ContainerConfig} from "./layout/Container";
 import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
+import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from "./widget/TreeView";
 
 export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
     TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps |
-    TabsProps;
+    TabsProps | TreeViewProps;
 
 export enum WidgetName {
     Button = "Button",
@@ -33,6 +34,7 @@ export enum WidgetName {
     SideBar = "SideBar",
     Container = "Container",
     Tabs = "Tabs",
+    TreeView = "TreeView",
 }
 
 type WidgetInfoType = {
@@ -68,6 +70,8 @@ export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
             return <Container {...props as ContainerProps}/>;
         case WidgetName.Tabs:
             return <Tabs {...props as TabsProps}/>
+        case WidgetName.TreeView:
+            return <TreeView {...props as TreeViewProps}/>
         default:
             return <></>
     }
@@ -122,6 +126,10 @@ export const widgetInfo: WidgetInfoType = {
         category: 'widget',
         description: "",
     },
+    [WidgetName.TreeView]: {
+        category: 'widget',
+        description: "",
+    }
 };
 
 interface WidgetConfigMapInterface {
@@ -141,6 +149,7 @@ const WidgetConfigMap: WidgetConfigMapInterface = {
     [WidgetName.SideBar]: SideBarConfig,
     [WidgetName.Container]: ContainerConfig,
     [WidgetName.Tabs]: TabsConfig,
+    [WidgetName.TreeView]: TreeViewConfig,
 };
 
 export function getWidgetConfiguration(name: string): any {
@@ -160,4 +169,5 @@ export {
     SideBar,
     Container,
     Tabs,
+    TreeView,
 }
