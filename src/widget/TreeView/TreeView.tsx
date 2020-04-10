@@ -19,7 +19,7 @@ interface Params {
 }
 
 interface Events {
-    onNodeSelect: (node: TreeNode) => void,
+    onNodeSelect: (args: object) => void,
 }
 
 export interface Props extends WidgetProps {
@@ -32,7 +32,7 @@ export default class TreeView extends Widget<Props> {
     handleNodeClick = (node: TreeNode) => (event: React.MouseEvent) => {
         event.stopPropagation();
         const {events} = this.props;
-        if (!!events?.onNodeSelect) events.onNodeSelect(node);
+        if (!!events?.onNodeSelect) events.onNodeSelect({node});
     };
 
     recurToRenderTreeNode = (node: TreeNode) => {

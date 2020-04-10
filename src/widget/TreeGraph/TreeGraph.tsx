@@ -20,7 +20,7 @@ interface Params {
 }
 
 interface Events {
-    onNodeClick: (node: TreeNode) => void,
+    onNodeClick: (args: object) => void,
 }
 
 export interface Props extends WidgetProps {
@@ -32,7 +32,7 @@ export default class TreeGraph extends Widget<Props> {
 
     handleNodeClick = (event: any, nodeKey: any) => {
         const {events} = this.props;
-        if (!!events?.onNodeClick) events.onNodeClick(nodeKey);
+        if (!!events?.onNodeClick) events.onNodeClick({nodeName: nodeKey});
     }
 
     renderCustomComponent() {
