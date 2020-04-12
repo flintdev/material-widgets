@@ -1,7 +1,7 @@
 // src/index.ts
 
 import * as React from 'react';
-import {ReactElement} from "react";
+import {Registry} from "@flintdev/widget-builder";
 
 import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./control/Button";
 import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from "./control/TextField";
@@ -18,152 +18,22 @@ import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs
 import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from "./widget/TreeView";
 import TreeGraph , {Props as TreeGraphProps, configJson as TreeGraphConfig} from "./widget/TreeGraph";
 
-export type WidgetProps = ButtonProps | TextFieldProps | GridProps | SimpleTableProps |
-    TableContainerProps | TableRowProps | PageProps | NavBarProps | SideBarProps | ContainerProps |
-    TabsProps | TreeViewProps | TreeGraphProps;
+let registry = new Registry();
 
-export enum WidgetName {
-    Button = "Button",
-    TextField = "TextField",
-    Grid = "Grid",
-    Label = "Label",
-    SimpleTable = "SimpleTable",
-    TableContainer = "TableContainer",
-    TableRow = "TableRow",
-    Page = "Page",
-    NavBar = "NavBar",
-    SideBar = "SideBar",
-    Container = "Container",
-    Tabs = "Tabs",
-    TreeView = "TreeView",
-    TreeGraph = "TreeGraph",
-}
-
-type WidgetInfoType = {
-    [key in WidgetName]: {
-        category: 'control' | 'layout' | 'widget';
-        description?: string;
-    };
-};
-
-export function getWidget(name: WidgetName, props: WidgetProps): ReactElement {
-    switch (name) {
-        case WidgetName.Button:
-            return <Button {...props as ButtonProps}/>;
-        case WidgetName.TextField:
-            return <TextField {...props as TextFieldProps}/>;
-        case WidgetName.Grid:
-            return <Grid {...props as GridProps}/>;
-        case WidgetName.Label:
-            return <Label {...props as LabelProps}/>;
-        case WidgetName.SimpleTable:
-            return <SimpleTable {...props as SimpleTableProps}/>;
-        case WidgetName.TableContainer:
-            return <TableContainer {...props as TableContainerProps}/>;
-        case WidgetName.TableRow:
-            return <TableRow {...props as TableRowProps}/>;
-        case WidgetName.Page:
-            return <Page {...props as PageProps}/>;
-        case WidgetName.NavBar:
-            return <NavBar {...props as NavBarProps}/>;
-        case WidgetName.SideBar:
-            return <SideBar {...props as SideBarProps}/>;
-        case WidgetName.Container:
-            return <Container {...props as ContainerProps}/>;
-        case WidgetName.Tabs:
-            return <Tabs {...props as TabsProps}/>
-        case WidgetName.TreeView:
-            return <TreeView {...props as TreeViewProps}/>
-        case WidgetName.TreeGraph:
-            return <TreeGraph {...props as TreeGraphProps}/>
-        default:
-            return <></>
-    }
-}
-
-export const widgetInfo: WidgetInfoType = {
-    [WidgetName.Button]: {
-        category: "control",
-        description: ""
-    },
-    [WidgetName.TextField]: {
-        category: "control",
-        description: ""
-    },
-    [WidgetName.Grid]: {
-        category: "layout",
-        description: ""
-    },
-    [WidgetName.Label]: {
-        category: 'control',
-        description: "",
-    },
-    [WidgetName.SimpleTable]: {
-        category: 'widget',
-        description: ""
-    },
-    [WidgetName.TableContainer]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.TableRow]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.Page]: {
-        category: "layout",
-        description: ""
-    },
-    [WidgetName.NavBar]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.SideBar]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.Container]: {
-        category: 'layout',
-        description: "",
-    },
-    [WidgetName.Tabs]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.TreeView]: {
-        category: 'widget',
-        description: "",
-    },
-    [WidgetName.TreeGraph]: {
-        category: 'widget',
-        description: "",
-    }
-};
-
-interface WidgetConfigMapInterface {
-    [key: string]: object
-}
-
-const WidgetConfigMap: WidgetConfigMapInterface = {
-    [WidgetName.Button]: ButtonConfig,
-    [WidgetName.Grid]: GridConfig,
-    [WidgetName.TextField]: TextFieldConfig,
-    [WidgetName.Label]: LabelConfig,
-    [WidgetName.SimpleTable]: SimpleTableConfig,
-    [WidgetName.TableContainer]: TableContainerConfig,
-    [WidgetName.TableRow]: TableRowConfig,
-    [WidgetName.Page]: PageConfig,
-    [WidgetName.NavBar]: NavBarConfig,
-    [WidgetName.SideBar]: SideBarConfig,
-    [WidgetName.Container]: ContainerConfig,
-    [WidgetName.Tabs]: TabsConfig,
-    [WidgetName.TreeView]: TreeViewConfig,
-    [WidgetName.TreeGraph]: TreeGraphConfig,
-};
-
-export function getWidgetConfiguration(name: string): any {
-    return WidgetConfigMap[name]
-}
+registry.add('Button', Button, ButtonConfig, {category: "control"});
+registry.add('TextField', TextField, TextFieldConfig, {category: "control"});
+registry.add('Label', Label, LabelConfig, {category: "control"});
+registry.add('Grid', Grid, GridConfig, {category: "layout"});
+registry.add('SimpleTable', SimpleTable, SimpleTableConfig, {category: "widget"});
+registry.add('TableContainer', TableContainer, TableContainerConfig, {category: "widget"});
+registry.add('TableRow', TableRow, TableRowConfig, {category: "widget"});
+registry.add('Page', Page, PageConfig, {category: "widget"});
+registry.add('NavBar', NavBar, NavBarConfig, {category: "widget"});
+registry.add('SideBar', SideBar, SideBarConfig, {category: "widget"});
+registry.add('Container', Container, ContainerConfig, {category: "layout"});
+registry.add('Tabs', Tabs, TabsConfig, {category: "widget"});
+registry.add('TreeView', TreeView, TreeViewConfig, {category: "widget"});
+registry.add('TreeGraph', TreeGraph, TreeGraphConfig, {category: "widget"});
 
 export {
     Button,
@@ -180,4 +50,9 @@ export {
     Tabs,
     TreeView,
     TreeGraph,
-}
+};
+
+export const library = registry.pack();
+
+// @ts-ignore
+module.exports = library;

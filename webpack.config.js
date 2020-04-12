@@ -4,11 +4,21 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
     context: __dirname,
     mode: 'development',
-    entry: "./example/index.tsx",
+    entry: {
+        index: "./example/index.tsx",
+        plugin: "./src/index.tsx",
+    },
     devtool: 'inline-source-map',
     output: {
-        path: path.resolve('./docs/'),
-        filename: "index.js",
+        path: path.resolve('./assets/'),
+        filename: "[name].js",
+        libraryTarget: 'umd',
+        library: 'materialWidgets'
+    },
+    // important! move react and react-dom as external dependencies to avoid invalid hook calls error
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".yaml"],
