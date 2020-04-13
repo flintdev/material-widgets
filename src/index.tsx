@@ -53,6 +53,3 @@ export {
 };
 
 export const library = registry.pack();
-
-// @ts-ignore
-module.exports = library;

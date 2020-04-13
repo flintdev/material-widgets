@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     entry: {
         index: "./example/index.tsx",
-        plugin: "./src/index.tsx",
+        plugin: "./src/library.ts",
     },
     devtool: 'inline-source-map',
     output: {
