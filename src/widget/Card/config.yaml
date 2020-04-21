@@ -1,0 +1,50 @@
+params:
+  - group: Style
+    items:
+      - key: marginTop
+        name: Margin Top
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginBottom
+        name: Margin Bottom
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginLeft
+        name: Margin Left
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginRight
+        name: Margin Right
+        type: integer
+        defaultValue: 0
+        ui: input
+  - group: Card Header
+    items:
+      - key: headerIcon
+        name: Header Icon
+        type: string
+        ui: input
+        defaultValue: star
+      - key: headerIconBgColor
+        name: Header Icon Background Color
+        type: string
+        ui: color-picker
+        defaultValue: "#E15241"
+      - key: headerIconColor
+        name: Header Icon Color
+        type: string
+        ui: color-picker
+        defaultValue: '#FFFFFF
+      - key: title
+        name: Title
+        type: string
+        ui: input
+        defaultValue: Title
+      - key: subtitle
+        name: Subtitle
+        type: string
+        ui: input
+        defaultValue: Subtitle/descrption
