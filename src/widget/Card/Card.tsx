@@ -45,16 +45,16 @@ export default class Card extends Widget<Props> {
                         </Avatar>
                     }
                     action={
-                        this.placeContainer('headerAction')
+                        this.placeContainer('card-headerAction')
                     }
                     title={params.title}
                     subheader={params.subtitle}
                 />
                 <MuiCardContent>
-                    {this.placeContainer('content')}
+                    {this.placeContainer('card-content')}
                 </MuiCardContent>
                 <MuiCardActions>
-                    {this.placeContainer('actions')}
+                    {this.placeContainer('card-actions')}
                 </MuiCardActions>
             </MuiCard>
         )

@@ -25,6 +25,7 @@ import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from ".
 import TreeGraph , {Props as TreeGraphProps, configJson as TreeGraphConfig} from "./widget/TreeGraph";
 import Splitter , {Props as SplitterProps, configJson as SplitterConfig} from "./layout/Splitter";
 import Card , {Props as CardProps, configJson as CardConfig} from "./widget/Card";
+import Panel , {Props as PanelProps, configJson as PanelConfig} from "./widget/Panel";
 
 let registry = new Registry();
 
@@ -44,6 +45,7 @@ registry.add('TreeView', TreeView, TreeViewConfig, {category: "widget"});
 registry.add('TreeGraph', TreeGraph, TreeGraphConfig, {category: "widget"});
 registry.add('Splitter', Splitter, SplitterConfig, {category: "layout"});
 registry.add('Card', Card, CardConfig, {category: "widget"});
+registry.add('Panel', Panel, PanelConfig, {category: "widget"});
 
 export {
     Button,
@@ -62,6 +64,7 @@ export {
     TreeGraph,
     Splitter,
     Card,
+    Panel,
 };
 
 export const library = registry.pack();
