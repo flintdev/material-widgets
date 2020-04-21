@@ -5,6 +5,7 @@ import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
 import TreeGraph from "../src/widget/TreeGraph";
 import {nodes} from "./data/treeNodes";
 import Tabs from "../src/widget/Tabs";
+import {Button} from '../src';
 
 const styles = createStyles({
     root: {},
@@ -29,32 +30,18 @@ class ExampleContainer extends React.Component<Props, object> {
 
     }
 
-    handleTabChange = (event: React.ChangeEvent, tabIndex: number) => {
-        this.setState({ tabIndex });
-    };
-
-    onDragEnd = (result: any) => {
-        const { source, destination } = result;
-        console.log('>>> source', source);
-        console.log('>>> destination', destination);
-    };
-
-    handleSelectButton = (val: boolean) => {
-        this.setState({ isButtonSelected: val })
-    };
-
     render() {
         const { classes } = this.props;
         const { tabIndex } = this.state;
         return (
             <div className={classes.root}>
-                <Tabs
-                    params={{tabItems: [{name: 'Tab1'}], currentTabIndex: 0, alignment: 'center'}}
+                <Button
+                    params={{
+                        variant: 'contained',
+                        label: "Button Label",
+                        icon: "bookmark"
+                    }}
                     events={{}}
-                />
-                <TreeGraph
-                    params={{nodes: nodes, rootName: 'root', width: 500, height: 500}}
-                    events={{onNodeClick: () => {}}}
                 />
             </div>
         )

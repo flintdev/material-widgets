@@ -13,7 +13,7 @@ module.exports = {
         path: path.resolve('./assets/'),
         filename: "[name].js",
         libraryTarget: 'umd',
-        library: 'materialWidgets'
+        library: 'material-widgets'
     },
     // important! move react and react-dom as external dependencies to avoid invalid hook calls error
     externals: {

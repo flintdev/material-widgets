@@ -3,6 +3,8 @@
 import * as React from 'react';
 import {Registry} from "@flintdev/widget-builder";
 
+import * as WebFont from 'webfontloader';
+
 import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./control/Button";
 import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from "./control/TextField";
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
@@ -17,6 +19,12 @@ import Container , {Props as ContainerProps, configJson as ContainerConfig} from
 import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
 import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from "./widget/TreeView";
 import TreeGraph , {Props as TreeGraphProps, configJson as TreeGraphConfig} from "./widget/TreeGraph";
+
+WebFont.load({
+    google: {
+        families: ['Material Icons']
+    }
+});
 
 let registry = new Registry();
 

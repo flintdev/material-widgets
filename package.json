@@ -32,7 +32,11 @@
   },
   "dependencies": {
     "@flintdev/widget-builder": "0.0.28",
-    "react-tree-graph": "^4.1.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "react-tree-graph": "^4.1.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@material-ui/core": "^4.8.3",
@@ -43,6 +47,7 @@
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/webfontloader": "^1.6.29",
     "copyfiles": "^2.2.0",
     "css-loader": "^3.4.0",
     "html-webpack-plugin": "^3.2.0",

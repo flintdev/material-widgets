@@ -3,10 +3,15 @@
 import * as React from 'react';
 import {Widget, WidgetProps} from "@flintdev/widget-builder";
 import {default as MuiButton} from "@material-ui/core/Button";
+import {generateIcon} from "../../utils/iconGenerator";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Icon from "@material-ui/core/Icon";
 
 interface Params {
     variant?: 'outlined' | 'text' | 'contained',
     label?: string,
+    icon?: string,
+    theme?: 'default' | 'primary' | 'secondary',
     marginTop?: number,
     marginBottom?: number,
     marginLeft?: number,
@@ -29,11 +34,23 @@ export default class Button extends Widget<Props> {
         if (!!events.onClick) events.onClick(event);
     };
 
+    getIcon = () => {
+        const {icon} = this.props.params;
+        if (!!icon && icon !== "") return (
+            <React.Fragment>
+                <Icon>{icon}</Icon>&nbsp;
+            </React.Fragment>
+        )
+        return <React.Fragment/>
+    };
+
     renderCustomComponent() {
         const {params} = this.props;
+        const {label, theme} = params;
         return (
             <MuiButton
                 variant={params.variant}
+                color={theme}
                 style={{
                     marginTop: params.marginTop,
                     marginBottom: params.marginBottom,
@@ -42,10 +59,10 @@ export default class Button extends Widget<Props> {
                 }}
                 onClick={this.handleClick}
             >
-                {params.label}
+                {this.getIcon()}
+                {label}
             </MuiButton>
         )
     }
-
 }
 

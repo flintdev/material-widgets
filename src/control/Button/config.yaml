@@ -37,6 +37,20 @@ params:
         type: string
         ui: input
         defaultValue: Button
+      - key: icon
+        name: Icon
+        type: string
+        ui: input
+        defaultValue: ""
+      - key: theme
+        name: Theme
+        type: string
+        ui: select
+        options:
+          - default
+          - primary
+          - secondary
+        defaultValue: "default"
 events:
   - key: onClick
     name: onClick
