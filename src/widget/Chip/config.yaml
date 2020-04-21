@@ -1,0 +1,52 @@
+params:
+  - group: Style
+    items:
+      - key: marginTop
+        name: Margin Top
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginBottom
+        name: Margin Bottom
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginLeft
+        name: Margin Left
+        type: integer
+        defaultValue: 0
+        ui: input
+      - key: marginRight
+        name: Margin Right
+        type: integer
+        defaultValue: 0
+        ui: input
+  - group: Parameters
+    items:
+      - key: label
+        name: Label
+        type: string
+        ui: input
+        defaultValue: "Label"
+      - key: variant
+        name: Variant
+        type: string
+        ui: select
+        options:
+          - "default"
+          - "outlined"
+        defaultValue: "default"
+      - key: theme
+        name: Theme
+        type: string
+        ui: select
+        options:
+          - "default"
+          - "primary"
+          - "secondary"
+        defaultValue: "default"
+      - key: icon
+        name: Icon
+        type: string
+        ui: input
+        defaultValue: "star"
