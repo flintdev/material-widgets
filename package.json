@@ -32,9 +32,6 @@
   },
   "dependencies": {
     "@flintdev/widget-builder": "0.0.28",
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
     "react-tree-graph": "^4.1.0",
     "webfontloader": "^1.6.28"
   },

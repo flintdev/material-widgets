@@ -3,8 +3,6 @@
 import * as React from 'react';
 import {Widget, WidgetProps} from "@flintdev/widget-builder";
 import {default as MuiButton} from "@material-ui/core/Button";
-import {generateIcon} from "../../utils/iconGenerator";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Icon from "@material-ui/core/Icon";
 
 interface Params {

@@ -39,7 +39,8 @@ class ExampleContainer extends React.Component<Props, object> {
                     params={{
                         variant: 'contained',
                         label: "Button Label",
-                        icon: "bookmark"
+                        icon: "bookmark",
+                        theme: 'primary'
                     }}
                     events={{}}
                 />
