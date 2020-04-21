@@ -30,10 +30,10 @@ export default class Splitter extends Widget<Props> {
             <React.Fragment>
                 <MuiGrid container>
                     <MuiGrid item xs={configList[0]}>
-                        {this.placeContainer('left')}
+                        {this.placeContainer('splitter-left')}
                     </MuiGrid>
                     <MuiGrid item xs={configList[1]}>
-                        {this.placeContainer('right')}
+                        {this.placeContainer('splitter-right')}
                     </MuiGrid>
                 </MuiGrid>
             </React.Fragment>

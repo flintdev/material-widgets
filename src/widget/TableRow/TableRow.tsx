@@ -22,7 +22,7 @@ export default class TableRow extends Widget<Props> {
     renderCustomComponent() {
         const {params} = this.props;
         return (
-            <MuiTableRow>
+            <MuiTableRow style={{flex: 1}}>
                 {!!params.cells && params.cells.map((cell, i) => {
                     return (
                         <TableCell key={i} align={cell.alignment}>

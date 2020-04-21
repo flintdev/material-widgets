@@ -37,7 +37,7 @@ params:
         name: Header Icon Color
         type: string
         ui: color-picker
-        defaultValue: '#FFFFFF
+        defaultValue: "#FFFFFF"
       - key: title
         name: Title
         type: string
@@ -47,4 +47,4 @@ params:
         name: Subtitle
         type: string
         ui: input
-        defaultValue: Subtitle/descrption
+        defaultValue: "Subtitle/descrption"

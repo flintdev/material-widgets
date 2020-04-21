@@ -32,6 +32,7 @@ export default class Panel extends Widget<Props> {
                     marginBottom: params.marginBottom,
                     marginLeft: params.marginLeft,
                     marginRight: params.marginRight,
+                    flex: 1,
                 }}
                 defaultExpanded={params.defaultExpansion === 'expanded'}
             >

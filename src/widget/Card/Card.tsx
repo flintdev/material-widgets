@@ -32,6 +32,7 @@ export default class Card extends Widget<Props> {
         return (
             <MuiCard
                 style={{
+                    flex: 1,
                     marginTop: params.marginTop,
                     marginBottom: params.marginBottom,
                     marginLeft: params.marginLeft,

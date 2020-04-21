@@ -50,3 +50,5 @@ params:
         type: string
         ui: input
         defaultValue: "star"
+canvas:
+  display: inline-block

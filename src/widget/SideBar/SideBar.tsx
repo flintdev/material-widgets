@@ -6,10 +6,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Icon from "@material-ui/core/Icon";
 
 interface MenuItem {
     id: string,
     name: string,
+    icon?: string
 }
 
 interface Params {
@@ -57,6 +59,11 @@ export default class SideBar extends Widget<Props> {
                                 selected={item.id === params.currentItemId}
                                 onClick={this.handleMenuItemClick(item.id)}
                             >
+                                {!!item.icon && item.icon !== "" &&
+                                <ListItemIcon>
+                                    <Icon>{item.icon}</Icon>
+                                </ListItemIcon>
+                                }
                                 <ListItemText primary={item.name}/>
                             </ListItem>
                         )
