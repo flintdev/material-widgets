@@ -4,7 +4,11 @@ import * as React from 'react';
 import {Registry} from "@flintdev/widget-builder";
 
 import * as WebFont from 'webfontloader';
-
+WebFont.load({
+    google: {
+        families: ['Material Icons']
+    }
+});
 import Button, {Props as ButtonProps, configJson as ButtonConfig} from "./control/Button";
 import TextField, {Props as TextFieldProps, configJson as TextFieldConfig} from "./control/TextField";
 import Grid, {Props as GridProps, configJson as GridConfig} from "./layout/Grid";
@@ -19,12 +23,7 @@ import Container , {Props as ContainerProps, configJson as ContainerConfig} from
 import Tabs , {Props as TabsProps, configJson as TabsConfig} from "./widget/Tabs";
 import TreeView , {Props as TreeViewProps, configJson as TreeViewConfig} from "./widget/TreeView";
 import TreeGraph , {Props as TreeGraphProps, configJson as TreeGraphConfig} from "./widget/TreeGraph";
-
-WebFont.load({
-    google: {
-        families: ['Material Icons']
-    }
-});
+import Splitter , {Props as SplitterProps, configJson as SplitterConfig} from "./layout/Splitter";
 
 let registry = new Registry();
 
@@ -42,6 +41,7 @@ registry.add('Container', Container, ContainerConfig, {category: "layout"});
 registry.add('Tabs', Tabs, TabsConfig, {category: "widget"});
 registry.add('TreeView', TreeView, TreeViewConfig, {category: "widget"});
 registry.add('TreeGraph', TreeGraph, TreeGraphConfig, {category: "widget"});
+registry.add('Splitter', Splitter, SplitterConfig, {category: "layout"});
 
 export {
     Button,
@@ -58,6 +58,7 @@ export {
     Tabs,
     TreeView,
     TreeGraph,
+    Splitter,
 };
 
 export const library = registry.pack();
