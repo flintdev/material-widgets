@@ -35,9 +35,13 @@ class ExampleContainer extends React.Component<Props, object> {
         const { tabIndex } = this.state;
         return (
             <div className={classes.root}>
-                <Page
+                <Tabs
                     params={{
-                        layout: 'header-content'
+                        tabItems: [
+                            {name: "Item 1", icon: ""}
+                        ],
+                        currentTabIndex: 0,
+                        alignment: "left"
                     }}
                     events={{}}
                 />

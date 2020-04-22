@@ -12,9 +12,15 @@ params:
               type: string
               ui: input
               defaultValue: ""
+            - key: icon
+              name: Icon
+              type: string
+              ui: input
+              defaultValue: ""
         ui: list-editor
         defaultValue:
           - name: "Tab Item 1"
+            icon: "star"
       - key: currentTabIndex
         name: "Current Tab Index"
         type: integer

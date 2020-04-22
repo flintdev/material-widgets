@@ -1,13 +1,15 @@
-// 
+// src/widget/Tabs/Tabs.tsx
 
 import * as React from 'react';
 import {Widget, WidgetProps} from "@flintdev/widget-builder";
 import Paper from '@material-ui/core/Paper';
 import {default as MuiTabs} from '@material-ui/core/Tabs';
 import {default as MuiTab} from '@material-ui/core/Tab';
+import Icon from "@material-ui/core/Icon";
 
 interface TabItem {
     name: string,
+    icon: string,
 }
 
 interface Params {
@@ -32,6 +34,11 @@ export default class Tabs extends Widget<Props> {
         if (!!events?.onChange) events.onChange({tabIndex: newValue});
     };
 
+    getIcon = (icon: string) => {
+        if (!icon || icon === "") return undefined;
+        return <Icon>{icon}</Icon>
+    };
+
     renderCustomComponent() {
         const {params} = this.props;
         const {tabItems, currentTabIndex, alignment} = params;
@@ -46,7 +53,7 @@ export default class Tabs extends Widget<Props> {
                 >
                     {tabItems.map((item, i) => {
                         return (
-                            <MuiTab key={i} label={item.name}/>
+                            <MuiTab key={i} label={item.name} icon={this.getIcon(item.icon)}/>
                         )
                     })}
                 </MuiTabs>
