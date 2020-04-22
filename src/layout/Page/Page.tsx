@@ -5,6 +5,7 @@ import {Widget, WidgetProps} from "@flintdev/widget-builder";
 
 interface Params {
     layout: 'header-sidebar-content' | 'header-content' | 'header-content-footer' | 'header-sidebar-content-footer',
+    backgroundColor?: string,
 }
 
 interface Events {
@@ -26,16 +27,28 @@ export default class Page extends Widget<Props> {
         if (!!events?.onLoad) events.onLoad();
     }
 
+
+
     renderCustomComponent() {
         const {params} = this.props;
+        const {layout} = params;
         return (
-            <div style={{width: '100%', height: '100%', display: 'flex', flexFlow: 'column'}}>
+            <div
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    flexFlow: 'column',
+                    backgroundColor: params.backgroundColor
+                }}
+            >
                 {/* header */}
                 <div>
                     {this.placeContainer('page-header')}
                 </div>
                 {/* content */}
                 <div style={{flexGrow: 1}}>
+                    {(layout === 'header-sidebar-content' || layout === 'header-sidebar-content-footer') &&
                     <table style={{width: '100%', height: '100%'}}>
                         <tbody>
                         <tr>
@@ -52,11 +65,19 @@ export default class Page extends Widget<Props> {
                         </tr>
                         </tbody>
                     </table>
+                    }
+                    {(layout === 'header-content' || layout === 'header-content-footer') &&
+                    <div>
+                        {this.placeContainer('page-content')}
+                    </div>
+                    }
                 </div>
                 {/* footer */}
+                {(layout === 'header-content-footer' || layout === 'header-sidebar-content-footer') &&
                 <div>
                     {this.placeContainer('page-footer')}
                 </div>
+                }
             </div>
         )
     }

@@ -11,6 +11,11 @@ params:
           - header-content-footer
           - header-sidebar-content-footer
         defaultValue: header-sidebar-content
+      - key: backgroundColor
+        name: Background Color
+        type: string
+        ui: color-picker
+        defaultValue: "#FFFFFF"
 events:
   - key: onLoad
     name: onLoad

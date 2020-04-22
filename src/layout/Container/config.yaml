@@ -51,6 +51,11 @@ params:
           - plain
           - paper
         defaultValue: plain
+      - key: backgroundColor
+        name: Background Color
+        type: string
+        ui: color-picker
+        defaultValue: "#FFFFFF"
 events:
   - key: onLoad
     name: onLoad

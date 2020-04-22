@@ -5,7 +5,7 @@ import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
 import TreeGraph from "../src/widget/TreeGraph";
 import {nodes} from "./data/treeNodes";
 import Tabs from "../src/widget/Tabs";
-import {Button} from '../src';
+import {Button, Page} from '../src';
 
 const styles = createStyles({
     root: {},
@@ -35,12 +35,9 @@ class ExampleContainer extends React.Component<Props, object> {
         const { tabIndex } = this.state;
         return (
             <div className={classes.root}>
-                <Button
+                <Page
                     params={{
-                        variant: 'contained',
-                        label: "Button Label",
-                        icon: "bookmark",
-                        theme: 'primary'
+                        layout: 'header-content'
                     }}
                     events={{}}
                 />

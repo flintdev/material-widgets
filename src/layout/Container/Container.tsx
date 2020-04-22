@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 
 interface Params {
     background?: "plain" | "paper",
+    backgroundColor?: string,
     marginTop?: number,
     marginBottom?: number,
     marginLeft?: number,
@@ -44,6 +45,7 @@ export default class Container extends Widget<Props> {
             paddingBottom: params.paddingBottom,
             paddingLeft: params.paddingLeft,
             paddingRight: params.paddingRight,
+            backgroundColor: params.backgroundColor
         }
     };
 
