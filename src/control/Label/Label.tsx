@@ -10,6 +10,7 @@ interface Params {
     text?: string,
     fontSize?: number,
     fontWeight?: string,
+    color?: string,
 }
 
 export interface Props extends WidgetProps {
@@ -29,7 +30,8 @@ export default class Label extends Widget<Props> {
                     marginLeft: params.marginLeft,
                     marginRight: params.marginRight,
                     fontSize: params.fontSize,
-                    fontWeight: params.fontWeight === 'bold' ? "bold" : undefined
+                    fontWeight: params.fontWeight === 'bold' ? "bold" : undefined,
+                    color: params.color,
                 }}
             >
                 {text}

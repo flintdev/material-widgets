@@ -31,7 +31,7 @@ params:
       - key: fontSize
         name: Font Size
         type: integer
-        defaultValue: 12
+        defaultValue: 20
         ui: input
       - key: fontWeight
         name: Font Weight
@@ -41,3 +41,8 @@ params:
           - regular
           - bold
         defaultValue: regular
+      - key: color
+        name: Color
+        type: string
+        ui: color-picker
+        defaultValue: "#000000"

@@ -19,3 +19,5 @@ params:
 events:
   - key: onLoad
     name: onLoad
+canvas:
+  defaultTag: "page-content"

@@ -22,3 +22,5 @@ params:
           - alignment: left
           - alignment: left
           - alignment: left
+canvas:
+  defaultTag: "table-row-0"

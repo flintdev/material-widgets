@@ -18,3 +18,5 @@ params:
         type: string
         ui: input
         defaultValue: "App Name"
+canvas:
+  defaultTag: "navbar-actions"

@@ -36,3 +36,5 @@ params:
         type: string
         ui: input
         defaultValue: Panel Title
+canvas:
+  defaultTag: "panel-content"

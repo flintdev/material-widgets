@@ -1,6 +1,6 @@
 {
   "name": "@flintdev/material-widgets",
-  "version": "0.0.65",
+  "version": "0.0.67",
   "description": "flint widgets of material design",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build-bundle": "webpack --progress --config webpack.config.js",
     "build-dist": "rimraf dist && tsc --outDir dist/ && copyfiles -u 1 src/**/*.yaml dist/",
     "update-widget-builder": "npm install @flintdev/widget-builder@latest",
-    "update-all": "npm run update-widget-builder"
+    "update-all": "npm run update-widget-builder",
+    "pipeline": "npm run build-dist && npm publish && npm run build-bundle"
   },
   "repository": {
     "type": "git",

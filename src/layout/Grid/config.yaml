@@ -15,3 +15,5 @@ params:
 events:
   - key: onLoad
     name: onLoad
+canvas:
+  defaultTag: "grid-0"

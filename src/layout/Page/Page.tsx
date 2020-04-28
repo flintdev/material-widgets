@@ -17,8 +17,6 @@ export interface Props extends WidgetProps {
     events: Events,
 }
 
-// TODO: switch layout
-
 export default class Page extends Widget<Props> {
 
     componentDidMount() {
@@ -26,8 +24,6 @@ export default class Page extends Widget<Props> {
         const {events} = this.props;
         if (!!events?.onLoad) events.onLoad();
     }
-
-
 
     renderCustomComponent() {
         const {params} = this.props;

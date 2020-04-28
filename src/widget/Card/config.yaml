@@ -47,4 +47,6 @@ params:
         name: Subtitle
         type: string
         ui: input
-        defaultValue: "Subtitle/descrption"
+        defaultValue: "Subtitle/description"
+canvas:
+  defaultTag: "card-content"
