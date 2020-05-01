@@ -74,7 +74,7 @@ export default class Dialog extends Widget<Props> {
         return (
             <React.Fragment>
                 {isInCanvas &&
-                <div>
+                <div style={{flex: 1}}>
                     {this.renderContent()}
                 </div>
                 }
