@@ -27,6 +27,7 @@ import Splitter , {Props as SplitterProps, configJson as SplitterConfig} from ".
 import Card , {Props as CardProps, configJson as CardConfig} from "./widget/Card";
 import Panel , {Props as PanelProps, configJson as PanelConfig} from "./widget/Panel";
 import Chip , {Props as ChipProps, configJson as ChipConfig} from "./widget/Chip";
+import Dialog , {Props as DialogProps, configJson as DialogConfig} from "./widget/Dialog";
 
 let registry = new Registry();
 
@@ -48,6 +49,7 @@ registry.add('Splitter', Splitter, SplitterConfig, {category: "layout"});
 registry.add('Card', Card, CardConfig, {category: "widget"});
 registry.add('Panel', Panel, PanelConfig, {category: "widget"});
 registry.add('Chip', Chip, ChipConfig, {category: "widget"});
+registry.add('Dialog', Dialog, DialogConfig, {category: "widget"});
 
 export {
     Button,
@@ -68,6 +70,7 @@ export {
     Card,
     Panel,
     Chip,
+    Dialog,
 };
 
 export const library = registry.pack();

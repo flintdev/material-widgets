@@ -1,0 +1,52 @@
+params:
+  - group: Parameters
+    items:
+      - key: status
+        name: Status
+        type: string
+        ui: select
+        options:
+          - open
+          - closed
+        defaultValue: closed
+      - key: size
+        name: Size
+        type: string
+        ui: select
+        options:
+          - xs
+          - sm
+          - md
+          - lg
+          - xl
+        defaultValue: sm
+      - key: title
+        name: Title
+        type: string
+        ui: input
+        defaultValue: Dialog Title
+  - group: Submit Button
+    items:
+      - key: submitButtonDisplay
+        name: Display
+        type: string
+        ui: select
+        options:
+          - show
+          - hide
+        defaultValue: show
+      - key: submitButtonLabel
+        name: Label
+        type: string
+        ui: input
+        defaultValue: Submit
+events:
+  - key: onSubmit
+    name: onSubmit
+  - key: onClose
+    name: onClose
+  - key: onEnter
+    name: onEnter
+canvas:
+  defaultTag: "dialog-content"
+  overlay: true
