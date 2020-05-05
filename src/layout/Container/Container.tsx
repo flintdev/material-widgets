@@ -19,6 +19,7 @@ interface Params {
 
 interface Events {
     onLoad?: () => void;
+    onBeforeUnload?: () => void,
 }
 
 export interface Props extends WidgetProps {
@@ -32,6 +33,11 @@ export default class Container extends Widget<Props> {
         super.componentDidMount();
         const {events} = this.props;
         if (!!events?.onLoad) events.onLoad();
+    }
+
+    componentWillUnmount() {
+        const {events} = this.props;
+        if (!!events?.onBeforeUnload) events.onBeforeUnload();
     }
 
     getStyle = () => {

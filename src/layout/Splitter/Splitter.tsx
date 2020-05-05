@@ -8,8 +8,14 @@ interface Params {
     ratio: string
 }
 
+interface Events {
+    onLoad?: () => void;
+    onBeforeUnload?: () => void,
+}
+
 export interface Props extends WidgetProps {
-    params: Params
+    params: Params,
+    events: Events,
 }
 
 const ratioConfigMap: any = {
@@ -22,6 +28,17 @@ const ratioConfigMap: any = {
 };
 
 export default class Splitter extends Widget<Props> {
+
+    componentDidMount() {
+        super.componentDidMount();
+        const {events} = this.props;
+        if (!!events?.onLoad) events.onLoad();
+    }
+
+    componentWillUnmount() {
+        const {events} = this.props;
+        if (!!events?.onBeforeUnload) events.onBeforeUnload();
+    }
 
     renderCustomComponent() {
         const {params} = this.props;
